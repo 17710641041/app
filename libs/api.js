@@ -9,6 +9,12 @@ const contactInterface = {
   nav: `${api}/shop/index/nav`,
   //分类
   classList: `${api}/shop/index/index`,
+  //登录
+  userLogin : `${api}/shop/Member/userLogin`,
+  //获取用户信息
+  getMemberDetail : `${api}/shop/Member/getMemberDetail`,
+  //用户注册
+  shopRegister : `${api}/shop/Member/shopRegister`
 }
 
 export { contactInterface }

@@ -49,10 +49,8 @@
 </template>
 
 <script>
-	import {  
-        mapMutations  
-    } from 'vuex';
-	
+	import {contactInterface} from '@/libs/api.js';
+	import http from '@/libs/http.js';
 	export default{
 		data(){
 			return {
@@ -65,7 +63,6 @@
 			
 		},
 		methods: {
-			...mapMutations(['login']),
 			inputChange(e){
 				const key = e.currentTarget.dataset.key;
 				this[key] = e.detail.value;
@@ -77,29 +74,31 @@
 				this.$api.msg('去注册');
 			},
 			async toLogin(){
-				this.logining = true;
-				const {mobile, password} = this;
-				/* 数据验证模块
-				if(!this.$api.match({
-					mobile,
-					password
-				})){
-					this.logining = false;
-					return;
-				}
-				*/
-				const sendData = {
-					mobile,
-					password
+				let _this = this;
+				const {mobile, password} = _this;
+				_this.logining = true;
+				let opts={ url: contactInterface.userLogin, method: 'post'};
+				let param={
+					username:_this.mobile,
+					pwd: _this.password
 				};
-				const result = await this.$api.json('userInfo');
-				if(result.status === 1){
-					this.login(result.data);
-                    uni.navigateBack();  
-				}else{
-					this.$api.msg(result.msg);
-					this.logining = false;
-				}
+				http.httpRequest(opts, param).then(res => {
+				  console.log("登录返回数据",res.data)
+				  _this.logining = false;
+				},error => {console.log(error);})
+				// const {mobile, password} = this;
+				// const sendData = {
+				// 	mobile,
+				// 	password
+				// };
+				// const result = await this.$api.json('userInfo');
+				// if(result.status === 1){
+				// 	 this.login(result.data);
+				//   uni.navigateBack();  
+				// }else{
+				// 	this.$api.msg(result.msg);
+				// 	this.logining = false;
+				// }
 			}
 		},
 
