@@ -4,9 +4,9 @@
 			<block v-for="(item,index) in list_data" :key="index" v-if="index < 10">
 				<view class="cu-item" @tap="listTap(item,index)">
 					<view class="grid-icon">
-						<image :src="item.img" mode="widthFix"/>
+						<image :src="item.category_pic" mode="widthFix"/>
 					</view>
-					<text>{{item.name}}</text>
+					<text>{{item.category_name}}</text>
 				</view>
 			</block>
 			<!-- <view class="cu-item" @tap="moreTap()">

@@ -16,8 +16,8 @@
 			</view>
 			<!-- <text class="cate-item yticon icon-fenlei1" @click="toggleCateMask('show')"></text> -->
 		</view>
-		<view class="goods-list">
-			<view 
+		<view>
+			<!-- <view 
 				v-for="(item, index) in goodsList" :key="index"
 				class="goods-item"
 				@click="navToDetailPage(item)"
@@ -30,9 +30,11 @@
 					<text class="price">{{item.display_price}}</text>
 					<text>已售 {{item.sales}}</text>
 				</view>
-			</view>
+			</view> -->
+			<goods-list :list_data="goodsList" @listTap="goodsListTap"/>
+			
+			<l-load-more ref="loadMore" :isImg="isImg"></l-load-more>
 		</view>
-		<uni-load-more :status="loadingType"></uni-load-more>
 		
 <!-- 		<view class="cate-mask" :class="cateMaskState===0 ? 'none' : cateMaskState===1 ? 'show' : ''" @click="toggleCateMask">
 			<view class="cate-content" @click.stop.prevent="stopPrevent" @touchmove.stop.prevent="stopPrevent">
@@ -57,14 +59,17 @@
 <script>
 	import http from '@/libs/http.js';
 	import {contactInterface} from '@/libs/api.js';
-	import uniLoadMore from '@/components/uni-load-more/uni-load-more.vue';
+	import goodsList from '@/components/grid-menu-list/goods-list';
+	import LLoadMore from '@/components/l-load-more/l-load-more.vue'
 	export default {
 		components: {
-			uniLoadMore	
+			goodsList,LLoadMore
 		},
 		data() {
 			return {
-				page:0,
+				page:1,
+				isError:true,
+				isImg:false,
 				category_id:'',
 				cateMaskState: 0, //分类面板展开状态
 				headerPosition:"fixed",
@@ -77,11 +82,15 @@
 				goodsList: []
 			};
 		},
-		
+		onReachBottom() {
+			this.page++
+			this.getData();
+		},
 		onLoad(options){
 			// #ifdef H5
-			this.headerTop = document.getElementsByTagName('uni-page-head')[0].offsetHeight || 44 +'px';
-			console.log(this.headerTop)
+			this.headerTop='44px';
+			//this.headerTop = document.getElementsByTagName('uni-page-head')[0].offsetHeight || 44 +'px';
+			//console.log(this.headerTop)
 			// #endif
 			uni.setNavigationBarTitle({
 				title:options.title
@@ -100,68 +109,63 @@
 				this.headerPosition = "absolute";
 			}
 		},
-		//下拉刷新
-		onPullDownRefresh(){
-			this.getData('refresh');
-		},
-		//加载更多
-		onReachBottom(){
-			this.getData()
-		},
+		
 		methods: {
 			
-			getData(type='add', loading){
+			getData(){
 				//没有更多直接返回
 				let _this = this;
 				let opts={ url: contactInterface.goodsList, method: 'get'};
-				if(type === 'add'){
-					if(_this.loadingType === 'nomore'){
-						return false;
-					}
-					_this.page++;
-					_this.loadingType = 'loading';
-				}else{
-					_this.loadingType = 'more'
-				}
-				if(type === 'refresh'){
-					_this.page = 1;
-					_this.goodsList =[];
-				}
 				let param={category_id : _this.category_id,page:_this.page};
 				
 				http.httpRequest(opts, param).then(res => {
 				  if(res.data.code == 1){
-					_this.goodsList = _this.goodsList.concat(res.data.data);
-					//判断是否还有下一页，有是more  没有是nomore(测试数据判断大于20就没有了)
-					if(res.data.data.length < 10){
-						_this.loadingType = 'nomore'
-					}else{
-						_this.loadingType = 'more';
-					}
-					if(type === 'refresh'){
-						if(loading == 1){
-							uni.hideLoading()
-						}else{
-							uni.stopPullDownRefresh();
-						}
-					}
-					
-					//筛选，测试数据直接前端筛选了
-					if(_this.filterIndex === 1){
-						_this.goodsList.sort((a,b)=>b.sales - a.sales)
-					}
-					if(_this.filterIndex === 2){
-						_this.goodsList.sort((a,b)=>{
-							if(this.priceOrder == 1){
-								return a.price - b.price;
-							}
-							return b.price - a.price;
-						})
-					}
+					  _this.isError = false;
+					  if(res.data.data){
+						  if(res.data.data.length < 10){
+							  _this.$refs.loadMore.$loadOver();
+						  }
+						_this.goodsList = _this.goodsList.concat(res.data.data);
+					  }else{
+						  _this.$refs.loadMore.$loadOver();
+					  }
+				  }else{
+					  _this.$refs.loadMore.$loadError();
 				  }
+				  uni.stopPullDownRefresh();				
+					//筛选，测试数据直接前端筛选了
+					// if(_this.filterIndex === 1){
+					// 	_this.goodsList.sort((a,b)=>b.sales - a.sales)
+					// }
+					// if(_this.filterIndex === 2){
+					// 	_this.goodsList.sort((a,b)=>{
+					// 		if(this.priceOrder == 1){
+					// 			return a.price - b.price;
+					// 		}
+					// 		return b.price - a.price;
+					// 	})
+					// }
 				},error => {console.log(error);})
 			},
-			
+			//商品详情
+			goodsListTap(e) {
+				console.log(e);
+				if(e.index==0) {
+					uni.navigateTo({
+						url: '/pages/goods/goods'
+					});
+				} else if(e.index == 2) {
+					uni.navigateTo({
+						url: '/pages/goods/second_hand'
+					});
+				} else if(e.index == 3) {
+					uni.navigateTo({
+						url: '/pages/goods/second_terrace'
+					});
+				} else {
+					
+				}
+			},
 			//加载分类
 			async loadCateList(fid, sid){
 				let list = await this.$api.json('cateList');
@@ -172,47 +176,6 @@
 					item.child = tempList;
 				})
 				this.cateList = cateList;
-			},
-			//加载商品 ，带下拉刷新和上滑加载
-			async loadData(type='add', loading) {
-				//没有更多直接返回
-				if(type === 'add'){
-					if(this.loadingType === 'nomore'){
-						return;
-					}
-					this.loadingType = 'loading';
-				}else{
-					this.loadingType = 'more'
-				}
-				
-				let goodsList = await this.$api.json('goodsList');
-				if(type === 'refresh'){
-					this.goodsList = [];
-				}
-				//筛选，测试数据直接前端筛选了
-				if(this.filterIndex === 1){
-					goodsList.sort((a,b)=>b.sales - a.sales)
-				}
-				if(this.filterIndex === 2){
-					goodsList.sort((a,b)=>{
-						if(this.priceOrder == 1){
-							return a.price - b.price;
-						}
-						return b.price - a.price;
-					})
-				}
-				
-				this.goodsList = this.goodsList.concat(goodsList);
-				
-				//判断是否还有下一页，有是more  没有是nomore(测试数据判断大于20就没有了)
-				this.loadingType  = this.goodsList.length > 20 ? 'nomore' : 'more';
-				if(type === 'refresh'){
-					if(loading == 1){
-						uni.hideLoading()
-					}else{
-						uni.stopPullDownRefresh();
-					}
-				}
 			},
 			//筛选点击
 			tabClick(index){

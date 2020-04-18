@@ -1,12 +1,12 @@
 <template>
-	<view class="margin-bottom zaiui-goods-list-box" :class="show?'show':''">
+	<view class="zaiui-goods-list-box" :class="show?'show':''">
 		<view class="flex flex-wrap ">
 			<view class="basis-df padding-sm padding-right-xs ">
 				<block v-for="(item,index) in list_data" :key="index" v-if="index%2==0">
 					<view class="bg-white margin-bottom-sm list-radius" v-if="!item.type" @tap="listTap(item,index)">
 						<view class="goods-img">
-							<image :src="item.img" mode="widthFix" lazy-load/>
-							<text class="cuIcon-videofill text-white pay-view" v-if="item.pay"/>
+							<image :src="item.pic_cover_mid" mode="widthFix" lazy-load/>
+							<!-- <text class="cuIcon-videofill text-white pay-view" v-if="item.pay"/> -->
 							<!-- <view class="text-right service-view" v-if="item.service.length > 0">
 								<block v-for="(items,indexs) in item.service" :key="indexs">
 									<text class="cu-tag bg-blue radius sm">{{items}}</text>
@@ -19,14 +19,14 @@
 							</view> -->
 						</view>
 						<view class="padding-xs">
-							<view class="text-cut-2 text-black">{{item.title}}</view>
+							<view class="text-cut-2 text-black">{{item.goods_name}}</view>
 							<view class="margin-top-xs">
 								<view class="flex">
 									<view class="flex-sub">
-										<text class="text-price text-red text-xl text-left">{{item.price}}</text>
+										<text class="text-price text-red text-xl text-left">{{item.display_price}}</text>
 									</view>
-									<view class="flex-sub text-right" v-if="item.servicePlus">
-										<text class="cu-tag light bg-red radius sm ">{{item.servicePlus}}</text>
+									<view class="flex-sub text-right">
+										<text class="cu-tag light bg-red radius sm ">分享赚{{item.fxmoney}}</text>
 									</view>
 								</view>
 							</view>
@@ -38,13 +38,13 @@
 												<image class="cu-avatar sm round img" :src="item.avatar" lazy-load mode="widthFix"/>
 											</view> -->
 											<view class="basis-xl text-cut line-height">
-												<text class="text-sm margin-left-xs">{{item.username}}</text>
+												<text class="text-sm margin-left-xs">{{item.zpbz}}</text>
 											</view>
 											<!-- <image class="v-icon" src="/static/zaiui/img/v.png" lazy-load mode="widthFix" v-if="item.v"/> -->
 										</view>
 									</view>
 									<view class="flex-sub text-right text-time">
-										<text class="text-sm">{{item.time}}</text>
+										<text class="text-sm">{{item.isliyou}}</text>
 									</view>
 								</view>
 							</view>
@@ -78,8 +78,8 @@
 				<block v-for="(item,index) in list_data" :key="index" v-if="index%2!=0">
 					<view class="bg-white margin-bottom-sm list-radius" v-if="!item.type"  @tap="listTap(item,index)">
 						<view class="goods-img">
-							<image :src="item.img" mode="widthFix" lazy-load/>
-							<text class="cuIcon-videofill text-white pay-view" v-if="item.pay"/>
+							<image :src="item.pic_cover_mid" mode="widthFix" lazy-load/>
+							<!-- <text class="cuIcon-videofill text-white pay-view" v-if="item.pay"/> -->
 							<!-- <view class="text-right service-view" v-if="item.service.length > 0">
 								<block v-for="(items,indexs) in item.service" :key="indexs">
 									<text class="cu-tag bg-blue radius sm">{{items}}</text>
@@ -92,14 +92,14 @@
 							</view> -->
 						</view>
 						<view class="padding-xs">
-							<view class="text-cut-2 text-black">{{item.title}}</view>
+							<view class="text-cut-2 text-black">{{item.goods_name}}</view>
 							<view class="margin-top-xs">
 								<view class="flex">
 									<view class="flex-sub">
-										<text class="text-price text-red text-xl text-left">{{item.price}}</text>
+										<text class="text-price text-red text-xl text-left">{{item.display_price}}</text>
 									</view>
-									<view class="flex-sub text-right" v-if="item.servicePlus">
-										<text class="cu-tag light bg-red radius sm ">{{item.servicePlus}}</text>
+									<view class="flex-sub text-right">
+										<text class="cu-tag light bg-red radius sm ">分享赚{{item.fxmoney}}</text>
 									</view>
 								</view>
 							</view>
@@ -111,13 +111,13 @@
 												<image class="cu-avatar sm round img" :src="item.avatar" lazy-load mode="widthFix"/>
 											</view> -->
 											<view class="basis-xl text-cut line-height">
-												<text class="text-sm margin-left-xs">{{item.username}}</text>
+												<text class="text-sm margin-left-xs">{{item.zpbz}}</text>
 											</view>
 											<!-- <image class="v-icon" src="/static/zaiui/img/v.png" lazy-load mode="widthFix" v-if="item.v"/> -->
 										</view>
 									</view>
 									<view class="flex-sub text-right text-time">
-										<text class="text-sm">{{item.time}}</text>
+										<text class="text-sm">{{item.isliyou}}</text>
 									</view>
 								</view>
 							</view>

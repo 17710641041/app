@@ -16,7 +16,7 @@
 					<view class="basis-xxl">
 						<scroll-view scroll-x class="nav z" scroll-with-animation :scroll-left="headTab.scrollLeft">
 							<block v-for="(item,index) in headTab.list" :key="index">
-								<view class="cu-item" :class="index==headTab.TabCur?'select':''" @tap="tabSelect" :data-id="index">
+								<view class="cu-item" :class="index==headTab.TabCur?'select':''" @tap="tabSelect" :data-id="item.category_id">
 									<view>{{item.category_name}}</view>
 									<view class="tab-dot bg-white"/>
 								</view>
@@ -156,10 +156,10 @@
 			</view>
 			<!--商品列表-->
 			<goods-list :list_data="goodsData" @listTap="goodsListTap"/>
-			
+			<l-load-more ref="loadMore" :isImg="isImg"></l-load-more>
 		</view>
 		<view class="typesMain zaiui-view-content" v-else>
-			<grid-sort-list :list_data="gridSortData" click="gridSortTap"></grid-sort-list>
+			<grid-sort-list v-if="gridSortData.length > 0" :list_data="gridSortData" click="gridSortTap"></grid-sort-list>
 			<!--标题-->
 			<view class="margin-bottom-sm zaiui-tab-list-title">
 				<view class="flex flex-wrap zaiui-tab-list-flex">
@@ -175,7 +175,10 @@
 				</view>
 			</view>
 			<!--商品列表-->
+			
 			<goods-list :list_data="goodsData" @listTap="goodsListTap"/>
+			
+			<l-load-more ref="loadMore" :isImg="isImg"></l-load-more>
 		</view>
 	</view>
 </template>
@@ -186,8 +189,9 @@
 	import gridMenuList from '@/components/grid-menu-list/index';
 	import gridSortList from '@/components/grid-menu-list/grid-sort-list';
 	import goodsList from '@/components/grid-menu-list/goods-list';
+	import LLoadMore from '@/components/l-load-more/l-load-more.vue';
 	export default {
-		components:{gridMenuList,gridSortList,goodsList},
+		components:{gridMenuList,gridSortList,goodsList,LLoadMore},
 		data() {
 			return {
 				StatusBar: this.StatusBar,
@@ -195,15 +199,9 @@
 				headTab: {
 					TabCur: 0, 
 					scrollLeft: 0, 
-					// list: [
-					// 	'首页','服装鞋帽','交通工具',
-					// 	'家电','家居家具','珠宝配饰','美妆个护',
-					// 	'运动户外','母婴用品','玩具乐器','手机','数码',
-					// 	'电脑办公',
-					// ],
 					list: [
 						{
-							category_id: 1,
+							category_id: '',
 							category_name: '首页',
 							category_pic: '',
 							xiaji: ''
@@ -221,262 +219,24 @@
 				jingpin:'',
 				zhutui:'',
 				gridMenuData:[],
-				gridSortData:[{
-					id: 1,
-					name: '手机',
-					img: '/static/images/home/grid-icon/16.png',
-				},{
-					id: 2,
-					name: '平板',
-					img: '/static/images/home/grid-icon/17.png',
-				},{
-					id: 3,
-					name: '电脑',
-					img: '/static/images/home/grid-icon/18.png',
-				},{
-					id: 4,
-					name: '数码',
-					img: '/static/images/home/grid-icon/19.png',
-				},{
-					id: 5,
-					name: '家电',
-					img: '/static/images/home/grid-icon/20.png',
-				},{
-					id: 6,
-					name: '新人红包',
-					img: '/static/images/home/grid-icon/21.png',
-				},{
-					id: 7,
-					name: '手机直播',
-					img: '/static/images/home/grid-icon/22.png',
-				},{
-					id: 8,
-					name: '自营图书',
-					img: '/static/images/home/grid-icon/23.png',
-				},{
-					id: 9,
-					name: '游戏',
-					img: '/static/images/home/grid-icon/24.png',
-				},{
-					id: 10,
-					name: '更多',
-					img: '/static/images/home/grid-icon/more.png',
-				}],
-				goodsData:[
-					{
-						price: '2280',
-						servicePlus: '分享赚￥2.3',
-						username: '正品保障',
-						time: '7天无理由',
-						title: '商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题',
-						img: '/static/images/home/goods/1.png'
-					},
-					{
-						
-						type: '',
-						mold: [{bg:'red',title: '自营'}],
-						service: [],
-						price: '5049',
-						servicePlus: '分享赚￥2.3',
-						username: '正品保障',
-						time: '7天无理由',
-						title: '商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题',
-						img: '/static/images/home/goods/2.png',
-						avatar: '/static/images/avatar/2.jpg'
-					},
-					{
-						v: false,
-						pay: false,
-						type: '',
-						mold: [{bg:'blue',title: '寄卖'}],
-						service: [],
-						price: '2980',
-						servicePlus: '分享赚￥2.3',
-						username: '正品保障',
-						time: '7天无理由',
-						title: '商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题',
-						img: '/static/images/home/goods/3.png',
-						avatar: '/static/images/avatar/3.jpg'
-					},
-					{
-						v: false,
-						pay: true,
-						type: '',
-						mold: [],
-						service: ['支持验机','专业质检'],
-						price: '2280',
-						servicePlus: '分享赚￥2.3',
-						username: '正品保障',
-						time: '7天无理由',
-						title: '商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题',
-						img: '/static/images/home/goods/4.png',
-						avatar: '/static/images/avatar/4.jpg'
-					},
-					{
-						v: true,
-						pay: false,
-						type: '',
-						mold: [{bg:'red',title: '自营'}],
-						service: [],
-						price: '5049',
-						servicePlus: '分享赚￥2.3',
-						username: '正品保障',
-						time: '7天无理由',
-						title: '商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题',
-						img: '/static/images/home/goods/5.png',
-						avatar: '/static/images/avatar/5.jpg'
-					},
-					{
-						v: false,
-						pay: false,
-						type: '',
-						mold: [],
-						service: [],
-						price: '2980',
-						servicePlus: '分享赚￥2.3',
-						username: '正品保障',
-						time: '7天无理由',
-						title: '商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题',
-						img: '/static/images/home/goods/6.png',
-						avatar: '/static/images/avatar/6.jpg'
-					},
-					{
-						v: false,
-						pay: true,
-						type: '',
-						mold: [],
-						service: ['支持验机','专业质检'],
-						price: '2280',
-						servicePlus: '分享赚￥2.3',
-						username: '正品保障',
-						time: '7天无理由',
-						title: '商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题',
-						img: '/static/images/home/goods/7.png',
-						avatar: '/static/images/avatar/7.jpg'
-					},
-					{
-						v: true,
-						pay: false,
-						type: '',
-						mold: [{bg:'red',title: '自营'}],
-						service: [],
-						price: '5049',
-						servicePlus: '分享赚￥2.3',
-						username: '正品保障',
-						time: '7天无理由',
-						title: '商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题',
-						img: '/static/images/home/goods/8.png',
-						avatar: '/static/images/avatar/8.jpg'
-					},
-					{
-						v: false,
-						pay: false,
-						type: '',
-						mold: [],
-						service: [],
-						price: '2980',
-						servicePlus: '分享赚￥2.3',
-						username: '正品保障',
-						time: '7天无理由',
-						title: '商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题',
-						img: '/static/images/home/goods/9.png',
-						avatar: '/static/images/avatar/1.jpg'
-					},
-					{
-						v: false,
-						pay: true,
-						type: '',
-						mold: [],
-						service: ['支持验机','专业质检'],
-						price: '2280',
-						servicePlus: '分享赚￥2.3',
-						username: '正品保障',
-						time: '7天无理由',
-						title: '商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题',
-						img: '/static/images/home/goods/10.png',
-						avatar: '/static/images/avatar/2.jpg'
-					},
-					{
-						v: true,
-						pay: false,
-						type: '',
-						mold: [{bg:'red',title: '自营'}],
-						service: [],
-						price: '5049',
-						servicePlus: '分享赚￥2.3',
-						username: '正品保障',
-						time: '7天无理由',
-						title: '商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题',
-						img: '/static/images/home/goods/11.png',
-						avatar: '/static/images/avatar/3.jpg'
-					},
-					{
-						v: false,
-						pay: false,
-						type: '',
-						mold: [],
-						service: [],
-						price: '2980',
-						servicePlus: '分享赚￥2.3',
-						username: '正品保障',
-						time: '7天无理由',
-						title: '商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题',
-						img: '/static/images/home/goods/12.png',
-						avatar: '/static/images/avatar/4.jpg'
-					},
-					{
-						v: true,
-						pay: false,
-						type: '',
-						mold: [],
-						service: ['支持验机','专业质检'],
-						price: '2280',
-						servicePlus: '分享赚￥2.3',
-						username: '正品保障',
-						time: '7天无理由',
-						title: '商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题',
-						img: '/static/images/home/goods/13.png',
-						avatar: '/static/images/avatar/5.jpg'
-					},
-					{
-						v: true,
-						pay: false,
-						type: '',
-						mold: [{bg:'red',title: '自营'}],
-						service: [],
-						price: '5049',
-						servicePlus: '分享赚￥2.3',
-						username: '正品保障',
-						time: '7天无理由',
-						title: '商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题',
-						img: '/static/images/home/goods/14.png',
-						avatar: '/static/images/avatar/6.jpg'
-					},
-					{
-						v: false,
-						pay: false,
-						type: '',
-						mold: [],
-						service: [],
-						price: '2980',
-						servicePlus: '分享赚￥2.3',
-						username: '正品保障',
-						time: '7天无理由',
-						title: '商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题，商品标题',
-						img: '/static/images/home/goods/15.png',
-						avatar: '/static/images/avatar/7.jpg'
-					}
-				]
-				
+				gridSortData:[],
+				category_id:'',
+				goodsData:[],
+				pages:1,
+				isError:true,
+				isImg:false
 			};
 		},
-
+		onReachBottom() {
+			this.pages++
+			this.gettuijian();
+		},
 		onLoad() {
 			this.loadData();
 			this.getBanner();
 			this.getSelect();
 			this.getNav();
-			this.getzhekou();
+			this.gettuijian();
 			this.getmiaosha();
 			this.getjingpin();
 			this.getzhutui();
@@ -501,20 +261,31 @@
 				}
 			},
 			gridMenuTap(e) {
-				console.log(e);
+				console.log(e)
 				uni.navigateTo({
-					url: "/pages/home/sort_list"
+					url: `/pages/product/list?category_id=${e.data.id}&title=${e.data.nav_title}`
 				});
 			},
+			//tab分类点击
 			tabSelect(e) {
+				this.pages=1;
 				let index = e.currentTarget.dataset.id;
+				this.category_id = index
 				this.headTab.TabCur = index;
 				this.headTab.scrollLeft = (index - 1) * 60;
 				uni.pageScrollTo({
 				    scrollTop: 0,
 				    duration: 0
 				});
+				for(var i = 0 ; i < this.headTab.list.length ; i++){
+					console.log(this.headTab.list[i].category_id)
+					if(this.headTab.list[i].category_id == index){
+						this.gridSortData = this.headTab.list[i].xiaji
+					}
+				}
+				this.gettuijian();
 			},
+			//tab分类列表
 			getSelect(){
 				let _this = this;
 				let opts={ url: contactInterface.classList, method: 'get'};
@@ -525,6 +296,7 @@
 				  }
 				},error => {console.log(error);})
 			},
+			//banner轮播图
 			getBanner(){
 				let _this = this;
 				let opts={ url: contactInterface.banner, method: 'get'};
@@ -537,6 +309,7 @@
 				  }
 				},error => {console.log(error);})
 			},
+			//分类导航
 			getNav(){
 				let _this = this;
 				let opts={ url: contactInterface.nav, method: 'get'};
@@ -547,14 +320,26 @@
 				  }
 				},error => {console.log(error);})
 			},
-			getzhekou(){
+			//为您推荐
+			gettuijian(){
 				let _this = this;
-				let opts={ url: contactInterface.zhekou, method: 'get'};
-				let param={};
+				let opts={ url: contactInterface.goodsList, method: 'get'};
+				let param={category_id:this.category_id,page:this.pages};
 				http.httpRequest(opts, param).then(res => {
 				  if(res.data.code == 1){
-					_this.zhekouData = res.data.data;
+					  _this.isError = false;
+					  if(res.data.data){
+						  if(res.data.data.length < 10){
+							  _this.$refs.loadMore.$loadOver();
+						  }
+						_this.goodsData = _this.goodsData.concat(res.data.data);
+					  }else{
+						  _this.$refs.loadMore.$loadOver();
+					  }
+				  }else{
+					  _this.$refs.loadMore.$loadError();
 				  }
+				  uni.stopPullDownRefresh();
 				},error => {console.log(error);})
 			},
 			getmiaosha(){

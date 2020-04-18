@@ -43,6 +43,10 @@ const prePage = ()=>{
 
 
 Vue.config.productionTip = false
+// 加载更多组件
+import loadMore from '@/components/l-load-more/l-load-more.vue';
+Vue.component('load-more',loadMore);
+
 Vue.prototype.$fire = new Vue();
 Vue.prototype.$store = store;
 Vue.prototype.$api = {msg, json, prePage};
