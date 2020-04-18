@@ -16,7 +16,7 @@
 					<view class="basis-xxl">
 						<scroll-view scroll-x class="nav z" scroll-with-animation :scroll-left="headTab.scrollLeft">
 							<block v-for="(item,index) in headTab.list" :key="index">
-								<view class="cu-item" :class="index==headTab.TabCur?'select':''" @tap="tabSelect" :data-id="item.category_id">
+								<view class="cu-item" :class="index==headTab.TabCur?'select':''" @tap="tabSelect" :data-index="index" :data-id="item.category_id">
 									<view>{{item.category_name}}</view>
 									<view class="tab-dot bg-white"/>
 								</view>
@@ -227,6 +227,11 @@
 				isImg:false
 			};
 		},
+		onPullDownRefresh(){
+		    this.pages=1;
+			this.goodsData = [];
+		    this.gettuijian()
+		},
 		onReachBottom() {
 			this.pages++
 			this.gettuijian();
@@ -240,22 +245,9 @@
 		},
 		methods: {
 			goodsListTap(e) {
-				console.log(e);
-				if(e.index==0) {
-					uni.navigateTo({
-						url: '/pages/goods/goods'
-					});
-				} else if(e.index == 2) {
-					uni.navigateTo({
-						url: '/pages/goods/second_hand'
-					});
-				} else if(e.index == 3) {
-					uni.navigateTo({
-						url: '/pages/goods/second_terrace'
-					});
-				} else {
-					
-				}
+				uni.navigateTo({
+					url: `/pages/product/product?id=${e.data.goodsid}`
+				})
 			},
 			gridMenuTap(e) {
 				console.log(e)
@@ -265,9 +257,11 @@
 			},
 			//tab分类点击
 			tabSelect(e) {
+				//初始化列表分类
 				this.pages=1;
-				let index = e.currentTarget.dataset.id;
-				this.category_id = index
+				this.goodsData = [];
+				let index = e.currentTarget.dataset.index;
+				this.category_id = e.currentTarget.dataset.id;
 				this.headTab.TabCur = index;
 				this.headTab.scrollLeft = (index - 1) * 60;
 				uni.pageScrollTo({
@@ -275,8 +269,8 @@
 				    duration: 0
 				});
 				for(var i = 0 ; i < this.headTab.list.length ; i++){
-					console.log(this.headTab.list[i].category_id)
-					if(this.headTab.list[i].category_id == index){
+					//console.log(this.headTab.list[i].category_id)
+					if(this.headTab.list[i].category_id == e.currentTarget.dataset.id){
 						this.gridSortData = this.headTab.list[i].xiaji
 					}
 				}

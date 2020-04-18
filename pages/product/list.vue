@@ -86,6 +86,11 @@
 			this.page++
 			this.getData();
 		},
+		onPullDownRefresh(){
+		    this.page=1;
+			this.goodsList = [];
+		    this.getData()
+		},
 		onLoad(options){
 			// #ifdef H5
 			this.headerTop='44px';
@@ -115,9 +120,9 @@
 			getData(){
 				//没有更多直接返回
 				let _this = this;
+				
 				let opts={ url: contactInterface.goodsList, method: 'get'};
 				let param={category_id : _this.category_id,page:_this.page};
-				
 				http.httpRequest(opts, param).then(res => {
 				  if(res.data.code == 1){
 					  _this.isError = false;

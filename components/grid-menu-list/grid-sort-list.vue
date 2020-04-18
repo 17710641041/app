@@ -4,9 +4,9 @@
 			<block v-for="(item,index) in list_data" :key="index" v-if="index < 10">
 				<view class="cu-item" @tap="listTap(item,index)">
 					<view class="grid-icon">
-						<image :src="item.category_pic" mode="widthFix"/>
+						<image class="icon" :src="item.category_pic"/>
 					</view>
-					<text>{{item.category_name}}</text>
+					<text class="text">{{item.category_name}}</text>
 				</view>
 			</block>
 			<!-- <view class="cu-item" @tap="moreTap()">
@@ -51,6 +51,14 @@
 	.zaiui-grid-sort-view {
 		.grid-icon {
 			margin: 0 30rpx;
+			.icon{
+				width: 90upx;
+				height: 90upx;
+				border-radius: 50%;
+			}
 		}
+	}
+	.text{
+		margin-top: 5upx;
 	}
 </style>
