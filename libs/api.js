@@ -10,11 +10,12 @@ const contactInterface = {
   //分类
   classList: `${api}/shop/index/index`,
   //登录
-  userLogin : `${api}/shop/Member/userLogin`,
+  userLogin: `${api}/shop/Member/userLogin`,
   //获取用户信息
-  getMemberDetail : `${api}/shop/Member/getMemberDetail`,
+  getMemberDetail: `${api}/shop/Member/getMemberDetail`,
   //用户注册
-  shopRegister : `${api}/shop/Member/shopRegister`
+  shopRegister: `${api}/shop/Member/shopRegister`,
+  //为您推荐
+  goodsList: `${api}/shop/Goods/goodslist`
 }
-
 export { contactInterface }
