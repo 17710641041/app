@@ -181,8 +181,8 @@
 </template>
 
 <script>
-	import http from '@/libs/http.js';
 	import {contactInterface} from '@/libs/api.js';
+	import http from '@/libs/http.js';
 	import gridMenuList from '@/components/grid-menu-list/index';
 	import gridSortList from '@/components/grid-menu-list/grid-sort-list';
 	import goodsList from '@/components/grid-menu-list/goods-list';
@@ -652,7 +652,6 @@
 				http.httpRequest(opts, param).then(res => {
 				  if(res.data.code == 1){
 					_this.jingpin = res.data.data;
-					console.log("jingpin",_this.jingpin)
 				  }
 				},error => {console.log(error);})
 			},
