@@ -7,16 +7,16 @@
 						<view class="goods-img">
 							<image :src="item.img" mode="widthFix" lazy-load/>
 							<text class="cuIcon-videofill text-white pay-view" v-if="item.pay"/>
-							<view class="text-right service-view" v-if="item.service.length > 0">
+							<!-- <view class="text-right service-view" v-if="item.service.length > 0">
 								<block v-for="(items,indexs) in item.service" :key="indexs">
 									<text class="cu-tag bg-blue radius sm">{{items}}</text>
 								</block>
-							</view>
-							<view class="mold-view" v-if="item.mold.length > 0">
+							</view> -->
+							<!-- <view class="mold-view" v-if="item.mold.length > 0">
 								<block v-for="(items,indexs) in item.mold" :key="indexs">
 									<text class="cu-tag radius sm" :class="['bg-' + items.bg]">{{items.title}}</text>
 								</block>
-							</view>
+							</view> -->
 						</view>
 						<view class="padding-xs">
 							<view class="text-cut-2 text-black">{{item.title}}</view>
@@ -34,13 +34,13 @@
 								<view class="flex">
 									<view class="flex-sub">
 										<view class="flex flex-wrap user-info">
-											<view class="basis-xs">
+											<!-- <view class="basis-xs">
 												<image class="cu-avatar sm round img" :src="item.avatar" lazy-load mode="widthFix"/>
-											</view>
+											</view> -->
 											<view class="basis-xl text-cut line-height">
 												<text class="text-sm margin-left-xs">{{item.username}}</text>
 											</view>
-											<image class="v-icon" src="/static/zaiui/img/v.png" lazy-load mode="widthFix" v-if="item.v"/>
+											<!-- <image class="v-icon" src="/static/zaiui/img/v.png" lazy-load mode="widthFix" v-if="item.v"/> -->
 										</view>
 									</view>
 									<view class="flex-sub text-right text-time">
@@ -80,16 +80,16 @@
 						<view class="goods-img">
 							<image :src="item.img" mode="widthFix" lazy-load/>
 							<text class="cuIcon-videofill text-white pay-view" v-if="item.pay"/>
-							<view class="text-right service-view" v-if="item.service.length > 0">
+							<!-- <view class="text-right service-view" v-if="item.service.length > 0">
 								<block v-for="(items,indexs) in item.service" :key="indexs">
 									<text class="cu-tag bg-blue radius sm">{{items}}</text>
 								</block>
-							</view>
-							<view class="mold-view" v-if="item.mold.length > 0">
+							</view> -->
+							<!-- <view class="mold-view" v-if="item.mold.length > 0">
 								<block v-for="(items,indexs) in item.mold" :key="indexs">
 									<text class="cu-tag radius sm" :class="['bg-' + items.bg]">{{items.title}}</text>
 								</block>
-							</view>
+							</view> -->
 						</view>
 						<view class="padding-xs">
 							<view class="text-cut-2 text-black">{{item.title}}</view>
@@ -107,13 +107,13 @@
 								<view class="flex">
 									<view class="flex-sub">
 										<view class="flex flex-wrap user-info">
-											<view class="basis-xs">
+											<!-- <view class="basis-xs">
 												<image class="cu-avatar sm round img" :src="item.avatar" lazy-load mode="widthFix"/>
-											</view>
+											</view> -->
 											<view class="basis-xl text-cut line-height">
 												<text class="text-sm margin-left-xs">{{item.username}}</text>
 											</view>
-											<image class="v-icon" src="/static/zaiui/img/v.png" lazy-load mode="widthFix" v-if="item.v"/>
+											<!-- <image class="v-icon" src="/static/zaiui/img/v.png" lazy-load mode="widthFix" v-if="item.v"/> -->
 										</view>
 									</view>
 									<view class="flex-sub text-right text-time">
