@@ -237,9 +237,6 @@
 			this.getSelect();
 			this.getNav();
 			this.gettuijian();
-			this.getmiaosha();
-			this.getjingpin();
-			this.getzhutui();
 		},
 		methods: {
 			goodsListTap(e) {
@@ -342,38 +339,7 @@
 				  uni.stopPullDownRefresh();
 				},error => {console.log(error);})
 			},
-			getmiaosha(){
-				let _this = this;
-				let opts={ url: contactInterface.miaosha, method: 'get'};
-				let param={};
-				http.httpRequest(opts, param).then(res => {
-				  if(res.data.code == 1){
-					_this.miaosha = res.data.data;
-					console.log("jingpin",_this.miaosha)
-				  }
-				},error => {console.log(error);})
-			},
-			getjingpin(){
-				let _this = this;
-				let opts={ url: contactInterface.jingpin, method: 'get'};
-				let param={};
-				http.httpRequest(opts, param).then(res => {
-				  if(res.data.code == 1){
-					_this.jingpin = res.data.data;
-				  }
-				},error => {console.log(error);})
-			},
-			getzhutui(){
-				let _this = this;
-				let opts={ url: contactInterface.zhutui, method: 'get'};
-				let param={};
-				http.httpRequest(opts, param).then(res => {
-				  if(res.data.code == 1){
-					_this.zhutui = res.data.data;
-					console.log("zhutui",_this.zhutui)
-				  }
-				},error => {console.log(error);})
-			},
+			
 			navToList(sid,title){
 				uni.navigateTo({
 					url: `/pages/product/list?category_id=${sid}&title=${title}`
