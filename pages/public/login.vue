@@ -60,7 +60,7 @@
 			}
 		},
 		onLoad(){
-			
+			this.getUserData()
 		},
 		methods: {
 			inputChange(e){
@@ -73,7 +73,16 @@
 			toRegist(){
 				this.$api.msg('去注册');
 			},
-			async toLogin(){
+			getUserData(){
+				let opts={ url: contactInterface.getMemberDetail, method: 'post'};
+				let param={
+					token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjExMTExIiwicHdkIjoiMTExMTEifQ.6RuXtiU2xk6bBhJMbZDQfw1gDAWZ__gOh7mwe9Ch9Ow'
+				};
+				http.httpRequest(opts, param).then(res => {
+					console.log(res)
+				},error => {console.log(error);})
+			},
+			toLogin(){
 				let _this = this;
 				const {mobile, password} = _this;
 				_this.logining = true;
@@ -83,8 +92,13 @@
 					pwd: _this.password
 				};
 				http.httpRequest(opts, param).then(res => {
-				  console.log("登录返回数据",res.data)
-				  _this.logining = false;
+					if(res.data.code == 1){
+						//_this.getUserData();
+					}else{
+						console.log("登录返回数据",res.data.msg)
+						this.$api.msg(res.data.msg);
+						_this.logining = false;
+					}
 				},error => {console.log(error);})
 				// const {mobile, password} = this;
 				// const sendData = {
