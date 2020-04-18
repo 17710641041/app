@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "动态",
+  "usingComponents": {
+    "timeline": "/components/chenbin-timeline/timeLine",
+    "timeline-item": "/components/chenbin-timeline/timelineItem"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "zhongchao": "/components/qy-zhongcao/zhongcao"
+  },
+  "component": true
+}

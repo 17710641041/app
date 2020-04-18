@@ -1,0 +1,8 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "ck": "/pages/game/ck",
+    "wk": "/pages/game/wk",
+    "pyq": "/pages/game/pyq"
+  }
+}

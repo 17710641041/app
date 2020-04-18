@@ -1,0 +1,308 @@
+{
+	"pages": [
+		
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationStyle": "custom"
+				/*"app-plus": {
+					"titleNView": {
+						"type": "transparent",
+						"searchInput": {
+							"backgroundColor": "rgba(231, 231, 231,.7)",
+							"borderRadius": "16px",
+							"placeholder": "请输入地址 如：大钟寺",
+							"disabled": true,
+							"placeholderColor": "#606266"
+						},
+						"buttons": [{
+								"fontSrc": "/static/yticon.ttf",
+								"text": "\ue60d",
+								"fontSize": "26",
+								"color": "#303133",
+								"float": "left",
+								"background": "rgba(0,0,0,0)"
+							},
+							{
+								"fontSrc": "/static/yticon.ttf",
+								"text": "\ue744",
+								"fontSize": "27",
+								"color": "#303133",
+								"background": "rgba(0,0,0,0)",
+								"redDot": true
+							}
+						]
+					}
+				}*/
+			}
+		},
+		{
+		    "path" : "pages/card/index",
+		    "style" : {
+				"navigationBarTitleText": "挖矿可能获得"
+			}
+		},
+		{
+		    "path" : "pages/goodFriend/goodFriend",
+		    "style" : {
+				"navigationBarTitleText": "邀请记录"
+			}
+		},
+		{
+		    "path" : "pages/game/game",
+		    "style": {
+				"navigationStyle":"custom"
+		    }
+		},
+		{
+		    "path" : "pages/Share/Share",
+		    "style": {
+		    	"navigationStyle":"custom",
+				"navigationBarTextStyle":"white"
+		    }
+		},
+		
+		{
+		    "path" : "pages/search/search",
+		    "style": {
+				"navigationBarTitleText": "搜索"		    		
+		    }
+		},
+		
+		{
+			"path": "pages/product/product",
+			"style": {
+				"navigationBarTitleText": "详情展示",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
+			}
+		}, {
+			"path": "pages/set/set",
+			"style": {
+				"navigationBarTitleText": "设置"
+			}
+		},
+
+		{
+			"path": "pages/userinfo/userinfo",
+			"style": {
+				"navigationBarTitleText": "修改资料"
+			}
+		}, {
+			"path": "pages/cart/cart",
+			"style": {
+				"navigationBarTitleText": "购物车"
+			}
+		}, {
+			"path": "pages/public/login",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false,
+					"animationType": "slide-in-bottom"
+				}
+			}
+		}, {
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "我的",
+				// #ifdef MP
+				"navigationStyle": "custom",
+				// #endif
+				"app-plus": {
+					"bounce": "none",
+					"titleNView": {
+						"type": "transparent",
+						"buttons": [{
+								"fontSrc": "/static/yticon.ttf",
+								"text": "\ue60f",
+								"fontSize": "24",
+								"color": "#303133",
+								"width": "46px",
+								"background": "rgba(0,0,0,0)"
+							},
+							{
+								"fontSrc": "/static/yticon.ttf",
+								"text": "\ue744",
+								"fontSize": "28",
+								"color": "#303133",
+								"background": "rgba(0,0,0,0)",
+								"redDot": true
+							}
+						]
+					}
+				}
+			}
+		}, {
+			"path": "pages/detail/detail",
+			"style": {
+				"navigationBarTitleText": "",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
+			}
+		}, {
+			"path": "pages/order/order",
+			"style": {
+				"navigationBarTitleText": "我的订单",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		}, {
+			"path": "pages/money/money",
+			"style": {}
+		}, {
+			"path": "pages/order/createOrder",
+			"style": {
+				"navigationBarTitleText": "创建订单"
+			}
+		}, {
+			"path": "pages/address/address",
+			"style": {
+				"navigationBarTitleText": "收货地址"
+			}
+		}, {
+			"path": "pages/address/addressManage",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		}, {
+			"path": "pages/money/pay",
+			"style": {
+				"navigationBarTitleText": "支付"
+			}
+		},
+		{
+			"path": "pages/money/paySuccess",
+			"style": {
+				"navigationBarTitleText": "支付成功"
+			}
+		}
+	    ,{
+            "path" : "pages/notice/notice",
+            "style" : {
+				"navigationBarTitleText": "通知"
+			}
+        }
+        ,{
+            "path" : "pages/category/category",
+            "style" : {
+				"navigationBarTitleText": "分类",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+        }
+        ,{
+            "path" : "pages/product/list",
+            "style" : {
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "商品列表"
+			}
+        },
+        {
+            "path" : "pages/rule/rule",
+            "style" : {
+            	"navigationBarTitleText": "矿机规则"
+            }
+        },
+		{
+		    "path" : "pages/rule/rule1",
+		    "style" : {
+		    	"navigationBarTitleText": "创客规则"
+		    }
+		},
+        {
+            "path" : "pages/harvest/harvest",
+            "style" : {
+            	"navigationBarTitleText": "动态"
+            }
+        },
+		{
+		    "path" : "pages/harvest/dynamic",
+		    "style" : {
+		    	"navigationBarTitleText": "世界动态"
+		    }
+		}
+        ,{
+            "path" : "pages/qrcode/qrcode",
+            "style" : {
+				"navigationBarTitleText": "我的邀请码"
+			}
+        }
+        ,{
+            "path" : "pages/wallet/wallet",
+            "style" : {
+            	"navigationBarTitleText": "我的钱包"
+            }
+        }
+        ,{
+            "path" : "pages/hall/hall",
+            "style" : {
+            	"navigationBarTitleText": "交易大厅"
+            }
+        }
+        ,{
+            "path" : "pages/stock/stock",
+            "style" : {
+				"navigationBarTitleText": "我的仓库"
+			}
+        },
+		{
+            "path" : "pages/game/write",
+            "style" : {
+				"navigationBarTitleText": "发布"
+			}
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#f8f8f8"
+	},
+	"tabBar": {
+		"color": "#C0C4CC",
+		"selectedColor": "#fa436a",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/tab-home.png",
+				"selectedIconPath": "static/tab-home-current.png",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/game/game",
+				"iconPath": "static/tab-ck.png",
+				"selectedIconPath": "static/tab-ck-current.png",
+				"text": "广场"
+			},
+			// {
+			// 	"pagePath": "pages/Share/Share",
+			// 	"iconPath": "static/tab-csj.png",
+			// 	"selectedIconPath": "static/tab-csj-current.png",
+			// 	"text": "矿机"
+			// },
+			{
+				"pagePath": "pages/cart/cart",
+				"iconPath": "static/tab-cart.png",
+				"selectedIconPath": "static/tab-cart-current.png",
+				"text": "购物车"
+			},
+			{
+				"pagePath": "pages/user/user",
+				"iconPath": "static/tab-my.png",
+				"selectedIconPath": "static/tab-my-current.png",
+				"text": "我的"
+			}
+		]
+	}
+}

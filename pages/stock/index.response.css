@@ -1,0 +1,69 @@
+.hm-goods-card {
+  margin: 30upx;
+  border-radius: 30upx;
+}
+.list{
+	width: 100%;
+	padding-bottom: 110upx;
+}
+.goods {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 20upx;
+  background: #fff;
+  padding: 20upx;
+  border-radius: 15upx;
+}
+.goods:last-child{
+	margin-bottom: 0;
+}
+.wrap {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  margin-right: 29upx;
+  border-radius: 15upx;
+  background-color: #eeeff3;
+  overflow: hidden;
+}
+
+.pic {
+  width: 100upx;
+  height: 100upx;
+}
+
+.block {
+  flex: 1;
+  width: 0;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.tradeName {
+  position: relative;
+  opacity: 1;
+  line-height: 38.96rpx;
+  white-space: nowrap;
+  color: #141821;
+  font-size: 28upx;
+  font-weight: 600;
+  
+}
+
+.describe {
+  position: relative;
+  opacity: 1;
+  margin-top: 7.79rpx;
+  height: 38.96rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 38.96rpx;
+  white-space: nowrap;
+  color: #8c8c8c;
+  font-size: 26upx;
+  font-weight: normal;
+}

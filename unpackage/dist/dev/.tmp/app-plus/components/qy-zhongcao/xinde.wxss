@@ -1,0 +1,138 @@
+@charset "UTF-8";
+/* 页面左右间距 */
+/* 文字尺寸 */
+/*文字颜色*/
+/* 边框颜色 */
+/* 图片加载中颜色 */
+/* 行为相关颜色 */
+.xinde {
+  font-size: 14px;
+  background-color: #F7F7F5;
+  min-height: 100vh;
+}
+.xinde .add-btn {
+    position: fixed;
+    left: 30rpx;
+    right: 30rpx;
+    bottom: 16rpx;
+    z-index: 95;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+    width: 690rpx;
+    height: 80rpx;
+    font-size: 32rpx;
+    color: #fff;
+    background-color: #fa436a;
+    border-radius: 10rpx;
+    box-shadow: 1px 2px 5px rgba(219, 63, 96, 0.4);
+}
+.xinde .pic {
+    background-color: #fff;
+}
+.xinde .title {
+    background-color: #fff;
+    padding: 10px;
+}
+.xinde .title .tit {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+              justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #F6F6F4;
+      line-height: 20px;
+}
+.xinde .title .tit .title_l {
+        font-size: 16px;
+        width: 80%;
+}
+.xinde .title .tit .title_r {
+        color: #A0A0A0;
+}
+.xinde .xd {
+    background-color: #fff;
+}
+.xinde .xd textarea {
+      padding: 10px 20px 20px;
+      width: 100%;
+      line-height: 20px;
+}
+.xinde .tuij {
+    border-radius: 5px;
+    margin: 10px;
+    border: 1px #E3E3E3 dashed;
+    background-color: #FDFDFB;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    height: 80px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+            align-items: center;
+}
+.xinde .tuij .tj_t {
+      color: #CCCCCA;
+      font-size: 16px;
+}
+.xinde .product {
+    border-radius: 5px;
+    margin: 15px 10px;
+    background-color: #FDFDFB;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    height: 80px;
+    position: relative;
+}
+.xinde .product .pro_l {
+      width: 80px;
+}
+.xinde .product .pro_l ._img {
+        width: 80px;
+        height: 80px;
+}
+.xinde .product .pro_r {
+      padding: 10px;
+      font-size: 16px;
+      width: 80%;
+}
+.xinde .product .pro_r .pro_r_01 {
+        height: 20px;
+        line-height: 20px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+}
+.xinde .product .pro_r .pro_r_02 {
+        color: #DA3056;
+        font-size: 16px;
+        padding-top: 15px;
+        font-weight: 600;
+}
+.xinde .product .pro_r .pro_r_02 ._span {
+          font-size: 12px;
+}
+.xinde .product .close {
+      position: absolute;
+      top: -10px;
+      right: -9px;
+}
+.xinde .ruhe {
+    padding: 10px;
+    text-align: center;
+    color: #999997;
+    font-size: 15px;
+}
+

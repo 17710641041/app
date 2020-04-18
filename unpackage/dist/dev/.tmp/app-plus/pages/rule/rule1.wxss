@@ -1,0 +1,9 @@
+
+.main{
+	padding: 30rpx;
+	font-size: 32rpx;
+}
+.txt{
+	margin-bottom: 20rpx;
+}
+

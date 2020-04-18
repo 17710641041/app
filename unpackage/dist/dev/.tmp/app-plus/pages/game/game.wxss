@@ -1,0 +1,51 @@
+
+.ta{
+	background: #fff;
+	width: 100%;
+	position: fixed;
+	top:0;
+}
+.act{
+	font-size: 34rpx;
+	font-weight: 600;
+	color: #333;
+}
+.nav{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+}
+.headerBox{
+	width: 100%;
+	background: #fff;
+	position: fixed;
+	z-index: 9999999;
+	top:0;
+	font-size: 30rpx;
+	padding-left: 20rpx;
+	color: #6d6d6d;
+	font-weight: 500;
+}
+.header-items{
+	margin: 0 15rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+}
+
