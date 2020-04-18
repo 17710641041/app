@@ -6,10 +6,10 @@
 					<block v-for="(item,index) in ListData" :key="index" v-if="index < 10">
 						<view class="cu-item" @tap="listTap(item,index)">
 							<view class="grid-icon">
-								<image class="icon" :src="item.img" mode="widthFix"/>
+								<image class="icon" :src="item.nav_icon" mode="widthFix"/>
 							</view>
-							<view class="cu-tag badge z" :class="['bg-' + item.color]" v-if="item.badge">{{item.badge}}</view>
-							<text class="text-black">{{item.name}}</text>
+							<!-- <view class="cu-tag badge z" :class="['bg-' + item.color]" v-if="item.badge">{{item.badge}}</view> -->
+							<text class="text-black">{{item.nav_title}}</text>
 						</view>
 					</block>
 				</view>

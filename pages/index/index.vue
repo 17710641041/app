@@ -17,7 +17,7 @@
 						<scroll-view scroll-x class="nav z" scroll-with-animation :scroll-left="headTab.scrollLeft">
 							<block v-for="(item,index) in headTab.list" :key="index">
 								<view class="cu-item" :class="index==headTab.TabCur?'select':''" @tap="tabSelect" :data-id="index">
-									<view>{{item}}</view>
+									<view>{{item.category_name}}</view>
 									<view class="tab-dot bg-white"/>
 								</view>
 							</block>
@@ -195,12 +195,20 @@
 				headTab: {
 					TabCur: 0, 
 					scrollLeft: 0, 
+					// list: [
+					// 	'首页','服装鞋帽','交通工具',
+					// 	'家电','家居家具','珠宝配饰','美妆个护',
+					// 	'运动户外','母婴用品','玩具乐器','手机','数码',
+					// 	'电脑办公',
+					// ],
 					list: [
-						'首页','服装鞋帽','交通工具',
-						'家电','家居家具','珠宝配饰','美妆个护',
-						'运动户外','母婴用品','玩具乐器','手机','数码',
-						'电脑办公',
-					],
+						{
+							category_id: 1,
+							category_name: '首页',
+							category_pic: '',
+							xiaji: ''
+						}
+					]
 				},
 				titleNViewBackground: '',
 				swiperCurrent: 0,
@@ -212,97 +220,7 @@
 				miaosha:'',
 				jingpin:'',
 				zhutui:'',
-				gridMenuData:[{
-					id: 1,
-					name: '手机',
-					color: 'orange',
-					badge: '必看',
-					img: '/static/images/home/grid-icon/1.png',
-				},{
-					id: 2,
-					name: '平板',
-					color: '',
-					badge: '',
-					img: '/static/images/home/grid-icon/2.png',
-				},{
-					id: 3,
-					name: '电脑',
-					color: 'orange',
-					badge: '热卖',
-					img: '/static/images/home/grid-icon/3.png',
-				},{
-					id: 4,
-					name: '数码',
-					color: '',
-					badge: '',
-					img: '/static/images/home/grid-icon/4.png',
-				},{
-					id: 5,
-					name: '家电',
-					color: '',
-					badge: '',
-					img: '/static/images/home/grid-icon/5.png',
-				},{
-					id: 6,
-					name: '新人红包',
-					color: '',
-					badge: '',
-					img: '/static/images/home/grid-icon/6.png',
-				},{
-					id: 7,
-					name: '手机直播',
-					color: '',
-					badge: '',
-					img: '/static/images/home/grid-icon/7.png',
-				},{
-					id: 8,
-					name: '自营图书',
-					color: 'red',
-					badge: '必看',
-					img: '/static/images/home/grid-icon/8.png',
-				},{
-					id: 9,
-					name: '游戏',
-					color: '',
-					badge: '',
-					img: '/static/images/home/grid-icon/9.png',
-				},{
-					id: 10,
-					name: '二手车',
-					color: '',
-					badge: '',
-					img: '/static/images/home/grid-icon/10.png',
-				},{
-					id: 11,
-					name: '文玩玉翠',
-					color: '',
-					badge: '',
-					img: '/static/images/home/grid-icon/11.png',
-				},{
-					id: 12,
-					name: '免费领',
-					color: '',
-					badge: '',
-					img: '/static/images/home/grid-icon/12.png',
-				},{
-					id: 13,
-					name: '借钱',
-					color: '',
-					badge: '',
-					img: '/static/images/home/grid-icon/13.png',
-				},{
-					id: 14,
-					name: '拍卖',
-					color: '',
-					badge: '',
-					img: '/static/images/home/grid-icon/14.png',
-				},{
-					id: 15,
-					name: '分期商城',
-					color: '',
-					badge: '',
-					img: '/static/images/home/grid-icon/15.png',
-				}],
+				gridMenuData:[],
 				gridSortData:[{
 					id: 1,
 					name: '手机',
@@ -562,6 +480,7 @@
 		onLoad() {
 			this.loadData();
 			this.getBanner();
+			this.getSelect();
 			this.getNav();
 			this.getzhekou();
 			this.getmiaosha();
@@ -602,6 +521,16 @@
 				    duration: 0
 				});
 			},
+			getSelect(){
+				let _this = this;
+				let opts={ url: contactInterface.classList, method: 'get'};
+				let param={};
+				http.httpRequest(opts, param).then(res => {
+				  if(res.data.code == 1){
+					  _this.headTab.list =  _this.headTab.list.concat(res.data.data);
+				  }
+				},error => {console.log(error);})
+			},
 			getBanner(){
 				let _this = this;
 				let opts={ url: contactInterface.banner, method: 'get'};
@@ -620,7 +549,7 @@
 				let param={};
 				http.httpRequest(opts, param).then(res => {
 				  if(res.data.code == 1){
-					_this.navList = res.data.data;
+					_this.gridMenuData = res.data.data;
 				  }
 				},error => {console.log(error);})
 			},
