@@ -16,6 +16,8 @@ const contactInterface = {
   //用户注册
   shopRegister: `${api}/shop/Member/shopRegister`,
   //为您推荐
-  goodsList: `${api}/shop/Goods/goodslist`
+  goodsList: `${api}/shop/Goods/goodslist`,
+  //商品详情
+  goodsinfos : `${api}/shop/Goods/goodsinfos`
 }
 export { contactInterface }

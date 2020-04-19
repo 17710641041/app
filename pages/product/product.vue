@@ -2,10 +2,10 @@
 	<view class="container">
 		<view class="carousel">
 			<swiper indicator-dots circular=true duration="400">
-				<swiper-item class="swiper-item" v-for="(item,index) in imgList" :key="index">
+				<swiper-item class="swiper-item" v-for="(item,index) in goodsData.img_list" :key="index">
 					<view class="image-wrapper">
 						<image
-							:src="item.src" 
+							:src="item" 
 							class="loaded" 
 							mode="aspectFill"
 						></image>
@@ -15,17 +15,17 @@
 		</view>
 		
 		<view class="introduce-section">
-			<text class="title">恒源祥2019春季长袖白色t恤 新款春装</text>
+			<text class="title">{{goodsData.goods_name}}</text>
 			<view class="price-box">
 				<text class="price-tip">¥</text>
-				<text class="price">341.6</text>
-				<text class="m-price">¥488</text>
+				<text class="price">{{goodsData.promotion_price}}</text>
+				<text class="m-price">¥{{goodsData.market_price}}</text>
 				<!-- <text class="coupon-tip">7折</text> -->
 			</view>
 			<view class="bot-row">
-				<text>销量: 108</text>
-				<text>库存: 4690</text>
-				<text>浏览量: 768</text>
+				<text>销量: {{goodsData.xiaoliang}}</text>
+				<text>库存: {{goodsData.zongkucun}}</text>
+				<text>浏览量: {{goodsData.liulanliang}}</text>
 			</view>
 		</view>
 		
@@ -35,8 +35,8 @@
 				<text class="yticon icon-xingxing"></text>
 				 币
 			</view>
-			<text class="tit">该商品分享可获得奖励</text>
-			<text class="yticon icon-bangzhu1"></text>
+			<text class="tit">该商品分享可获得奖励￥{{goodsData.zhuanfa}}元</text>
+		
 			<view class="share-btn">
 				立即分享
 				<text class="yticon icon-you"></text>
@@ -49,21 +49,16 @@
 				<text class="tit">购买类型</text>
 				<view class="con">
 					<text class="selected-text" v-for="(sItem, sIndex) in specSelected" :key="sIndex">
-						{{sItem.name}}
+						{{sItem}}
 					</text>
 				</view>
 				<text class="yticon icon-you"></text>
 			</view>
-			<!-- <view class="c-row b-b">
-				<text class="tit">优惠券</text>
-				<text class="con t-r red">领取优惠券</text>
-				<text class="yticon icon-you"></text>
-			</view> -->
 			<view class="c-row b-b">
 				<text class="tit">服务</text>
 				<view class="bz-list con">
-					<text>7天无理由退换货 ·</text>
-					<text>假一赔十 ·</text>
+					<text>{{goodsData.isliyou}} ·</text>
+					<text>{{goodsData.zpbz}} ·</text>
 				</view>
 			</view>
 		</view>
@@ -93,7 +88,7 @@
 			<view class="d-header">
 				<text>图文详情</text>
 			</view>
-			<rich-text :nodes="desc"></rich-text>
+			<rich-text :nodes="goodsData.description"></rich-text>
 		</view>
 		
 		<!-- 底部操作菜单 -->
@@ -117,7 +112,6 @@
 			</view>
 		</view>
 		
-		
 		<!-- 规格-模态层弹窗 -->
 		<view 
 			class="popup spec" 
@@ -129,27 +123,28 @@
 			<view class="mask"></view>
 			<view class="layer attr-content" @click.stop="stopPrevent">
 				<view class="a-t">
-					<image src="https://gd3.alicdn.com/imgextra/i3/0/O1CN01IiyFQI1UGShoFKt1O_!!0-item_pic.jpg_400x400.jpg"></image>
+					<image :src="goodsData.pic_cover"></image>
 					<view class="right">
-						<text class="price">¥328.00</text>
-						<text class="stock">库存：188件</text>
+						<text class="price">¥{{goodsData.promotion_price}}</text>
+						<text class="stock">库存：{{goodsData.zongkucun}}件</text>
 						<view class="selected">
 							已选：
 							<text class="selected-text" v-for="(sItem, sIndex) in specSelected" :key="sIndex">
-								{{sItem.name}}
+								{{sItem}}
 							</text>
 						</view>
 					</view>
 				</view>
-				<view v-for="(item,index) in specList" :key="index" class="attr-list">
-					<text>{{item.name}}</text>
+				<view v-for="(item,index) in goodsData.goods_attribute_list" :key="index" class="attr-list">
+					<text>{{item.attr_value}}</text>
 					<view class="item-list">
+						<!-- :class="{selected: childIndex}" -->
 						<text 
-							v-for="(childItem, childIndex) in specChildList" 
-							v-if="childItem.pid === item.id"
-							:key="childIndex" class="tit"
-							:class="{selected: childItem.selected}"
-							@click="selectSpec(childIndex, childItem.pid)"
+							v-for="(childItem, childIndex) in item.attr_value_name" 
+							:key="childIndex"
+							:class="{selected: childItem.select}"
+							class="tit"
+							@click="selectSpec(item,childItem,childIndex)"
 						>
 							{{childItem.name}}
 						</text>
@@ -168,6 +163,8 @@
 </template>
 
 <script>
+	import {contactInterface} from '@/libs/api.js';
+	import http from '@/libs/http.js';
 	import share from '@/components/share';
 	export default{
 		components: {
@@ -175,22 +172,12 @@
 		},
 		data() {
 			return {
+				goodsid:'',
+				goodsData:'',
 				specClass: 'none',
 				specSelected:[],
-				
 				favorite: true,
 				shareList: [],
-				imgList: [
-					{
-						src: 'https://gd3.alicdn.com/imgextra/i3/0/O1CN01IiyFQI1UGShoFKt1O_!!0-item_pic.jpg_400x400.jpg'
-					},
-					{
-						src: 'https://gd3.alicdn.com/imgextra/i3/TB1RPFPPFXXXXcNXpXXXXXXXXXX_!!0-item_pic.jpg_400x400.jpg'
-					},
-					{
-						src: 'https://gd2.alicdn.com/imgextra/i2/38832490/O1CN01IYq7gu1UGShvbEFnd_!!38832490.jpg_400x400.jpg'
-					}
-				],
 				desc: `
 					<div style="width:100%">
 						<img style="width:100%;display:block;" src="https://gd3.alicdn.com/imgextra/i4/479184430/O1CN01nCpuLc1iaz4bcSN17_!!479184430.jpg_400x400.jpg" />
@@ -200,87 +187,37 @@
 						<img style="width:100%;display:block;" src="https://gd1.alicdn.com/imgextra/i1/479184430/O1CN01Tnm1rU1iaz4aVKcwP_!!479184430.jpg_400x400.jpg" />
 					</div>
 				`,
-				specList: [
-					{
-						id: 1,
-						name: '尺寸',
-					},
-					{	
-						id: 2,
-						name: '颜色',
-					},
-				],
-				specChildList: [
-					{
-						id: 1,
-						pid: 1,
-						name: 'XS',
-					},
-					{
-						id: 2,
-						pid: 1,
-						name: 'S',
-					},
-					{
-						id: 3,
-						pid: 1,
-						name: 'M',
-					},
-					{
-						id: 4,
-						pid: 1,
-						name: 'L',
-					},
-					{
-						id: 5,
-						pid: 1,
-						name: 'XL',
-					},
-					{
-						id: 6,
-						pid: 1,
-						name: 'XXL',
-					},
-					{
-						id: 7,
-						pid: 2,
-						name: '白色',
-					},
-					{
-						id: 8,
-						pid: 2,
-						name: '珊瑚粉',
-					},
-					{
-						id: 9,
-						pid: 2,
-						name: '草木绿',
-					},
-				]
 			};
 		},
 		async onLoad(options){
-			
-			//接收传值,id里面放的是标题，因为测试数据并没写id 
-			let id = options.id;
-			if(id){
-				this.$api.msg(`点击了${id}`);
-			}
-			
-			
-			//规格 默认选中第一条
-			this.specList.forEach(item=>{
-				for(let cItem of this.specChildList){
-					if(cItem.pid === item.id){
-						this.$set(cItem, 'selected', true);
-						this.specSelected.push(cItem);
-						break; //forEach不能使用break
-					}
-				}
-			})
+			this.goodsid = options.id;
+			this.getData()
 			this.shareList = await this.$api.json('shareList');
 		},
+		onShow(){
+			
+		},
 		methods:{
+			itemsFun(){
+				let _this = this;
+				let datas = _this.goodsData.goods_attribute_list;
+				for(var i = 0 ; i < datas.length ; i++){
+					datas[i].attr_value_name[0].select = true;
+					_this.specSelected.push(datas[i].attr_value_name[0].name);
+				}
+			},
+			getData(){
+				let _this = this;
+				let opts={ url: contactInterface.goodsinfos, method: 'get'};
+				let param={goodsid: _this.goodsid};
+				http.httpRequest(opts, param).then(res => {
+					if(res.data.code == 1){
+						_this.goodsData = res.data.data;
+						_this.itemsFun();
+						console.log(res.data.data)
+					}
+				},error => {console.log(error);})
+			},
 			//规格弹窗开关
 			toggleSpec() {
 				if(this.specClass === 'show'){
@@ -293,28 +230,26 @@
 				}
 			},
 			//选择规格
-			selectSpec(index, pid){
-				let list = this.specChildList;
+			selectSpec( obj, items, index){
+				let list = this.goodsData.goods_attribute_list;
+				// console.log( items, index)
+				
 				list.forEach(item=>{
-					if(item.pid === pid){
-						this.$set(item, 'selected', false);
+					if(item.attr_value_id === obj.attr_value_id){
+						item.attr_value_name.forEach(items=>{
+							items.select = false;
+						})
 					}
 				})
-
-				this.$set(list[index], 'selected', true);
-				//存储已选择
-				/**
-				 * 修复选择规格存储错误
-				 * 将这几行代码替换即可
-				 * 选择的规格存放在specSelected中
-				 */
+				items.select = true;
 				this.specSelected = []; 
-				list.forEach(item=>{ 
-					if(item.selected === true){ 
-						this.specSelected.push(item); 
-					} 
+				list.forEach(item=>{
+					item.attr_value_name.forEach(items=>{
+						if(items.select == true){
+							this.specSelected.push(items.name); 
+						}
+					})
 				})
-				
 			},
 			//分享
 			share(){
