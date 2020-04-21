@@ -88,7 +88,7 @@
 			<view class="d-header">
 				<text>图文详情</text>
 			</view>
-			<rich-text :nodes="goodsData.description"></rich-text>
+			<rich-text class="contont" :nodes="goodsData.description|formatRichText"></rich-text>
 		</view>
 		
 		<!-- 底部操作菜单 -->
@@ -111,6 +111,7 @@
 				<button type="primary" class=" action-btn no-border add-cart-btn" @click="share">分享赚钱</button>
 			</view>
 		</view>
+		
 		
 		<!-- 规格-模态层弹窗 -->
 		<view 
@@ -178,15 +179,6 @@
 				specSelected:[],
 				favorite: true,
 				shareList: [],
-				desc: `
-					<div style="width:100%">
-						<img style="width:100%;display:block;" src="https://gd3.alicdn.com/imgextra/i4/479184430/O1CN01nCpuLc1iaz4bcSN17_!!479184430.jpg_400x400.jpg" />
-						<img style="width:100%;display:block;" src="https://gd2.alicdn.com/imgextra/i2/479184430/O1CN01gwbN931iaz4TzqzmG_!!479184430.jpg_400x400.jpg" />
-						<img style="width:100%;display:block;" src="https://gd3.alicdn.com/imgextra/i3/479184430/O1CN018wVjQh1iaz4aupv1A_!!479184430.jpg_400x400.jpg" />
-						<img style="width:100%;display:block;" src="https://gd4.alicdn.com/imgextra/i4/479184430/O1CN01tWg4Us1iaz4auqelt_!!479184430.jpg_400x400.jpg" />
-						<img style="width:100%;display:block;" src="https://gd1.alicdn.com/imgextra/i1/479184430/O1CN01Tnm1rU1iaz4aVKcwP_!!479184430.jpg_400x400.jpg" />
-					</div>
-				`,
 			};
 		},
 		async onLoad(options){
@@ -196,6 +188,32 @@
 		},
 		onShow(){
 			
+		},
+		filters: {
+			/**
+			 * 处理富文本里的图片宽度自适应
+			 * 1.去掉img标签里的style、width、height属性
+			 * 2.img标签添加style属性：max-width:100%;height:auto
+			 * 3.修改所有style里的width属性为max-width:100%
+			 * 4.去掉<br/>标签
+			 * @param html
+			 * @returns {void|string|*}
+			 */
+			formatRichText (html) { //控制小程序中图片大小
+				let newContent= html.replace(/<img[^>]*>/gi,function(match,capture){
+					match = match.replace(/style="[^"]+"/gi, '').replace(/style='[^']+'/gi, '');
+					match = match.replace(/width="[^"]+"/gi, '').replace(/width='[^']+'/gi, '');
+					match = match.replace(/height="[^"]+"/gi, '').replace(/height='[^']+'/gi, '');
+					return match;
+				});
+				newContent = newContent.replace(/style="[^"]+"/gi,function(match,capture){
+					match = match.replace(/width:[^;]+;/gi, 'max-width:100%;').replace(/width:[^;]+;/gi, 'max-width:100%;');
+					return match;
+				});
+				newContent = newContent.replace(/<br[^>]*\/>/gi, '');
+				newContent = newContent.replace(/\<img/gi, '<img style="max-width:100%;height:auto;display:inline-block;margin:10rpx auto;"');
+				return newContent;
+			}	
 		},
 		methods:{
 			itemsFun(){
@@ -271,6 +289,13 @@
 </script>
 
 <style lang='scss'>
+	.contont{
+		width: 100%;
+		div{
+			width: 100%;
+		}
+		img{width: 100%;}
+	}
 	page{
 		background: $page-color-base;
 		padding-bottom: 160upx;

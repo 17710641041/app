@@ -7809,7 +7809,7 @@ var render = function() {
           _c(
             "v-uni-text",
             { staticClass: _vm._$g(7, "sc"), attrs: { _i: 7 } },
-            [_vm._v("恒源祥2019春季长袖白色t恤 新款春装")]
+            [_vm._v(_vm._$g(7, "t0-0"))]
           ),
           _c(
             "v-uni-view",
@@ -7823,12 +7823,12 @@ var render = function() {
               _c(
                 "v-uni-text",
                 { staticClass: _vm._$g(10, "sc"), attrs: { _i: 10 } },
-                [_vm._v("341.6")]
+                [_vm._v(_vm._$g(10, "t0-0"))]
               ),
               _c(
                 "v-uni-text",
                 { staticClass: _vm._$g(11, "sc"), attrs: { _i: 11 } },
-                [_vm._v("¥488")]
+                [_vm._v("¥" + _vm._$g(11, "t0-0"))]
               )
             ],
             1
@@ -7837,9 +7837,15 @@ var render = function() {
             "v-uni-view",
             { staticClass: _vm._$g(12, "sc"), attrs: { _i: 12 } },
             [
-              _c("v-uni-text", { attrs: { _i: 13 } }, [_vm._v("销量: 108")]),
-              _c("v-uni-text", { attrs: { _i: 14 } }, [_vm._v("库存: 4690")]),
-              _c("v-uni-text", { attrs: { _i: 15 } }, [_vm._v("浏览量: 768")])
+              _c("v-uni-text", { attrs: { _i: 13 } }, [
+                _vm._v("销量: " + _vm._$g(13, "t0-0"))
+              ]),
+              _c("v-uni-text", { attrs: { _i: 14 } }, [
+                _vm._v("库存: " + _vm._$g(14, "t0-0"))
+              ]),
+              _c("v-uni-text", { attrs: { _i: 15 } }, [
+                _vm._v("浏览量: " + _vm._$g(15, "t0-0"))
+              ])
             ],
             1
           )
@@ -7873,20 +7879,16 @@ var render = function() {
           _c(
             "v-uni-text",
             { staticClass: _vm._$g(19, "sc"), attrs: { _i: 19 } },
-            [_vm._v("该商品分享可获得奖励")]
+            [_vm._v("该商品分享可获得奖励￥" + _vm._$g(19, "t0-0") + "元")]
           ),
-          _c("v-uni-text", {
-            staticClass: _vm._$g(20, "sc"),
-            attrs: { _i: 20 }
-          }),
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(21, "sc"), attrs: { _i: 21 } },
+            { staticClass: _vm._$g(20, "sc"), attrs: { _i: 20 } },
             [
               _vm._v("\n\t\t\t立即分享\n\t\t\t"),
               _c("v-uni-text", {
-                staticClass: _vm._$g(22, "sc"),
-                attrs: { _i: 22 }
+                staticClass: _vm._$g(21, "sc"),
+                attrs: { _i: 21 }
               })
             ],
             1
@@ -7896,13 +7898,13 @@ var render = function() {
       ),
       _c(
         "v-uni-view",
-        { staticClass: _vm._$g(23, "sc"), attrs: { _i: 23 } },
+        { staticClass: _vm._$g(22, "sc"), attrs: { _i: 22 } },
         [
           _c(
             "v-uni-view",
             {
-              staticClass: _vm._$g(24, "sc"),
-              attrs: { _i: 24 },
+              staticClass: _vm._$g(23, "sc"),
+              attrs: { _i: 23 },
               on: {
                 click: function($event) {
                   return _vm.$handleViewEvent($event)
@@ -7912,50 +7914,50 @@ var render = function() {
             [
               _c(
                 "v-uni-text",
-                { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
+                { staticClass: _vm._$g(24, "sc"), attrs: { _i: 24 } },
                 [_vm._v("购买类型")]
               ),
               _c(
                 "v-uni-view",
-                { staticClass: _vm._$g(26, "sc"), attrs: { _i: 26 } },
-                _vm._l(_vm._$g(27, "f"), function(sItem, sIndex, $21, $31) {
+                { staticClass: _vm._$g(25, "sc"), attrs: { _i: 25 } },
+                _vm._l(_vm._$g(26, "f"), function(sItem, sIndex, $21, $31) {
                   return _c(
                     "v-uni-text",
                     {
                       key: sItem,
-                      staticClass: _vm._$g("27-" + $31, "sc"),
-                      attrs: { _i: "27-" + $31 }
+                      staticClass: _vm._$g("26-" + $31, "sc"),
+                      attrs: { _i: "26-" + $31 }
                     },
-                    [_vm._v(_vm._$g("27-" + $31, "t0-0"))]
+                    [_vm._v(_vm._$g("26-" + $31, "t0-0"))]
                   )
                 }),
                 1
               ),
               _c("v-uni-text", {
-                staticClass: _vm._$g(28, "sc"),
-                attrs: { _i: 28 }
+                staticClass: _vm._$g(27, "sc"),
+                attrs: { _i: 27 }
               })
             ],
             1
           ),
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
+            { staticClass: _vm._$g(28, "sc"), attrs: { _i: 28 } },
             [
               _c(
                 "v-uni-text",
-                { staticClass: _vm._$g(30, "sc"), attrs: { _i: 30 } },
+                { staticClass: _vm._$g(29, "sc"), attrs: { _i: 29 } },
                 [_vm._v("服务")]
               ),
               _c(
                 "v-uni-view",
-                { staticClass: _vm._$g(31, "sc"), attrs: { _i: 31 } },
+                { staticClass: _vm._$g(30, "sc"), attrs: { _i: 30 } },
                 [
-                  _c("v-uni-text", { attrs: { _i: 32 } }, [
-                    _vm._v("7天无理由退换货 ·")
+                  _c("v-uni-text", { attrs: { _i: 31 } }, [
+                    _vm._v(_vm._$g(31, "t0-0") + " ·")
                   ]),
-                  _c("v-uni-text", { attrs: { _i: 33 } }, [
-                    _vm._v("假一赔十 ·")
+                  _c("v-uni-text", { attrs: { _i: 32 } }, [
+                    _vm._v(_vm._$g(32, "t0-0") + " ·")
                   ])
                 ],
                 1
@@ -7968,55 +7970,55 @@ var render = function() {
       ),
       _c(
         "v-uni-view",
-        { staticClass: _vm._$g(34, "sc"), attrs: { _i: 34 } },
+        { staticClass: _vm._$g(33, "sc"), attrs: { _i: 33 } },
         [
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(35, "sc"), attrs: { _i: 35 } },
+            { staticClass: _vm._$g(34, "sc"), attrs: { _i: 34 } },
             [
               _c(
                 "v-uni-text",
-                { staticClass: _vm._$g(36, "sc"), attrs: { _i: 36 } },
+                { staticClass: _vm._$g(35, "sc"), attrs: { _i: 35 } },
                 [_vm._v("评价")]
               ),
-              _c("v-uni-text", { attrs: { _i: 37 } }, [_vm._v("(86)")]),
+              _c("v-uni-text", { attrs: { _i: 36 } }, [_vm._v("(86)")]),
               _c(
                 "v-uni-text",
-                { staticClass: _vm._$g(38, "sc"), attrs: { _i: 38 } },
+                { staticClass: _vm._$g(37, "sc"), attrs: { _i: 37 } },
                 [_vm._v("好评率 100%")]
               ),
               _c("v-uni-text", {
-                staticClass: _vm._$g(39, "sc"),
-                attrs: { _i: 39 }
+                staticClass: _vm._$g(38, "sc"),
+                attrs: { _i: 38 }
               })
             ],
             1
           ),
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(40, "sc"), attrs: { _i: 40 } },
+            { staticClass: _vm._$g(39, "sc"), attrs: { _i: 39 } },
             [
               _c("v-uni-image", {
-                staticClass: _vm._$g(41, "sc"),
+                staticClass: _vm._$g(40, "sc"),
                 attrs: {
                   src:
                     "http://img3.imgtn.bdimg.com/it/u=1150341365,1327279810&fm=26&gp=0.jpg",
                   mode: "aspectFill",
-                  _i: 41
+                  _i: 40
                 }
               }),
               _c(
                 "v-uni-view",
-                { staticClass: _vm._$g(42, "sc"), attrs: { _i: 42 } },
+                { staticClass: _vm._$g(41, "sc"), attrs: { _i: 41 } },
                 [
                   _c(
                     "v-uni-text",
-                    { staticClass: _vm._$g(43, "sc"), attrs: { _i: 43 } },
+                    { staticClass: _vm._$g(42, "sc"), attrs: { _i: 42 } },
                     [_vm._v("Leo yo")]
                   ),
                   _c(
                     "v-uni-text",
-                    { staticClass: _vm._$g(44, "sc"), attrs: { _i: 44 } },
+                    { staticClass: _vm._$g(43, "sc"), attrs: { _i: 43 } },
                     [
                       _vm._v(
                         "商品收到了，79元两件，质量不错，试了一下有点瘦，但是加个外罩很漂亮，我很喜欢"
@@ -8025,16 +8027,16 @@ var render = function() {
                   ),
                   _c(
                     "v-uni-view",
-                    { staticClass: _vm._$g(45, "sc"), attrs: { _i: 45 } },
+                    { staticClass: _vm._$g(44, "sc"), attrs: { _i: 44 } },
                     [
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(46, "sc"), attrs: { _i: 46 } },
+                        { staticClass: _vm._$g(45, "sc"), attrs: { _i: 45 } },
                         [_vm._v("购买类型：XL 红色")]
                       ),
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(47, "sc"), attrs: { _i: 47 } },
+                        { staticClass: _vm._$g(46, "sc"), attrs: { _i: 46 } },
                         [_vm._v("2019-04-01 19:21")]
                       )
                     ],
@@ -8051,71 +8053,72 @@ var render = function() {
       ),
       _c(
         "v-uni-view",
-        { staticClass: _vm._$g(48, "sc"), attrs: { _i: 48 } },
+        { staticClass: _vm._$g(47, "sc"), attrs: { _i: 47 } },
         [
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(49, "sc"), attrs: { _i: 49 } },
-            [_c("v-uni-text", { attrs: { _i: 50 } }, [_vm._v("图文详情")])],
+            { staticClass: _vm._$g(48, "sc"), attrs: { _i: 48 } },
+            [_c("v-uni-text", { attrs: { _i: 49 } }, [_vm._v("图文详情")])],
             1
           ),
           _c("v-uni-rich-text", {
-            attrs: { nodes: _vm._$g(51, "a-nodes"), _i: 51 }
+            staticClass: _vm._$g(50, "sc"),
+            attrs: { nodes: _vm._$g(50, "a-nodes"), _i: 50 }
           })
         ],
         1
       ),
       _c(
         "v-uni-view",
-        { staticClass: _vm._$g(52, "sc"), attrs: { _i: 52 } },
+        { staticClass: _vm._$g(51, "sc"), attrs: { _i: 51 } },
         [
           _c(
             "v-uni-navigator",
             {
-              staticClass: _vm._$g(53, "sc"),
+              staticClass: _vm._$g(52, "sc"),
               attrs: {
                 url: "/pages/index/index",
                 "open-type": "switchTab",
-                _i: 53
+                _i: 52
               }
             },
             [
               _c("v-uni-text", {
-                staticClass: _vm._$g(54, "sc"),
-                attrs: { _i: 54 }
+                staticClass: _vm._$g(53, "sc"),
+                attrs: { _i: 53 }
               }),
-              _c("v-uni-text", { attrs: { _i: 55 } }, [_vm._v("首页")])
+              _c("v-uni-text", { attrs: { _i: 54 } }, [_vm._v("首页")])
             ],
             1
           ),
           _c(
             "v-uni-navigator",
             {
-              staticClass: _vm._$g(56, "sc"),
+              staticClass: _vm._$g(55, "sc"),
               attrs: {
                 url: "/pages/cart/cart",
                 "open-type": "switchTab",
-                _i: 56
+                _i: 55
               }
             },
             [
               _c("v-uni-text", {
-                staticClass: _vm._$g(57, "sc"),
-                attrs: { _i: 57 }
+                staticClass: _vm._$g(56, "sc"),
+                attrs: { _i: 56 }
               }),
-              _c("v-uni-text", { attrs: { _i: 58 } }, [_vm._v("加购")])
+              _c("v-uni-text", { attrs: { _i: 57 } }, [_vm._v("加购")])
             ],
             1
           ),
           _c(
             "v-uni-view",
-            { staticClass: _vm._$g(59, "sc"), attrs: { _i: 59 } },
+            { staticClass: _vm._$g(58, "sc"), attrs: { _i: 58 } },
             [
               _c(
                 "v-uni-button",
                 {
-                  staticClass: _vm._$g(60, "sc"),
-                  attrs: { type: "primary", _i: 60 },
+                  staticClass: _vm._$g(59, "sc"),
+                  attrs: { type: "primary", _i: 59 },
                   on: {
                     click: function($event) {
                       return _vm.$handleViewEvent($event)
@@ -8127,8 +8130,8 @@ var render = function() {
               _c(
                 "v-uni-button",
                 {
-                  staticClass: _vm._$g(61, "sc"),
-                  attrs: { type: "primary", _i: 61 },
+                  staticClass: _vm._$g(60, "sc"),
+                  attrs: { type: "primary", _i: 60 },
                   on: {
                     click: function($event) {
                       return _vm.$handleViewEvent($event)
@@ -8146,9 +8149,9 @@ var render = function() {
       _c(
         "v-uni-view",
         {
-          staticClass: _vm._$g(62, "sc"),
-          class: _vm._$g(62, "c"),
-          attrs: { _i: 62 },
+          staticClass: _vm._$g(61, "sc"),
+          class: _vm._$g(61, "c"),
+          attrs: { _i: 61 },
           on: {
             touchmove: function($event) {
               return _vm.$handleViewEvent($event, { stop: true, prevent: true })
@@ -8160,14 +8163,14 @@ var render = function() {
         },
         [
           _c("v-uni-view", {
-            staticClass: _vm._$g(63, "sc"),
-            attrs: { _i: 63 }
+            staticClass: _vm._$g(62, "sc"),
+            attrs: { _i: 62 }
           }),
           _c(
             "v-uni-view",
             {
-              staticClass: _vm._$g(64, "sc"),
-              attrs: { _i: 64 },
+              staticClass: _vm._$g(63, "sc"),
+              attrs: { _i: 63 },
               on: {
                 click: function($event) {
                   return _vm.$handleViewEvent($event, { stop: true })
@@ -8177,35 +8180,31 @@ var render = function() {
             [
               _c(
                 "v-uni-view",
-                { staticClass: _vm._$g(65, "sc"), attrs: { _i: 65 } },
+                { staticClass: _vm._$g(64, "sc"), attrs: { _i: 64 } },
                 [
                   _c("v-uni-image", {
-                    attrs: {
-                      src:
-                        "https://gd3.alicdn.com/imgextra/i3/0/O1CN01IiyFQI1UGShoFKt1O_!!0-item_pic.jpg_400x400.jpg",
-                      _i: 66
-                    }
+                    attrs: { src: _vm._$g(65, "a-src"), _i: 65 }
                   }),
                   _c(
                     "v-uni-view",
-                    { staticClass: _vm._$g(67, "sc"), attrs: { _i: 67 } },
+                    { staticClass: _vm._$g(66, "sc"), attrs: { _i: 66 } },
                     [
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(68, "sc"), attrs: { _i: 68 } },
-                        [_vm._v("¥328.00")]
+                        { staticClass: _vm._$g(67, "sc"), attrs: { _i: 67 } },
+                        [_vm._v("¥" + _vm._$g(67, "t0-0"))]
                       ),
                       _c(
                         "v-uni-text",
-                        { staticClass: _vm._$g(69, "sc"), attrs: { _i: 69 } },
-                        [_vm._v("库存：188件")]
+                        { staticClass: _vm._$g(68, "sc"), attrs: { _i: 68 } },
+                        [_vm._v("库存：" + _vm._$g(68, "t0-0") + "件")]
                       ),
                       _c(
                         "v-uni-view",
-                        { staticClass: _vm._$g(70, "sc"), attrs: { _i: 70 } },
+                        { staticClass: _vm._$g(69, "sc"), attrs: { _i: 69 } },
                         [
                           _vm._v("\n\t\t\t\t\t\t已选：\n\t\t\t\t\t\t"),
-                          _vm._l(_vm._$g(71, "f"), function(
+                          _vm._l(_vm._$g(70, "f"), function(
                             sItem,
                             sIndex,
                             $22,
@@ -8215,10 +8214,10 @@ var render = function() {
                               "v-uni-text",
                               {
                                 key: sItem,
-                                staticClass: _vm._$g("71-" + $32, "sc"),
-                                attrs: { _i: "71-" + $32 }
+                                staticClass: _vm._$g("70-" + $32, "sc"),
+                                attrs: { _i: "70-" + $32 }
                               },
-                              [_vm._v(_vm._$g("71-" + $32, "t0-0"))]
+                              [_vm._v(_vm._$g("70-" + $32, "t0-0"))]
                             )
                           })
                         ],
@@ -8230,50 +8229,45 @@ var render = function() {
                 ],
                 1
               ),
-              _vm._l(_vm._$g(72, "f"), function(item, index, $23, $33) {
+              _vm._l(_vm._$g(71, "f"), function(item, index, $23, $33) {
                 return _c(
                   "v-uni-view",
                   {
                     key: item,
-                    staticClass: _vm._$g("72-" + $33, "sc"),
-                    attrs: { _i: "72-" + $33 }
+                    staticClass: _vm._$g("71-" + $33, "sc"),
+                    attrs: { _i: "71-" + $33 }
                   },
                   [
-                    _c("v-uni-text", { attrs: { _i: "73-" + $33 } }, [
-                      _vm._v(_vm._$g("73-" + $33, "t0-0"))
+                    _c("v-uni-text", { attrs: { _i: "72-" + $33 } }, [
+                      _vm._v(_vm._$g("72-" + $33, "t0-0"))
                     ]),
                     _c(
                       "v-uni-view",
                       {
-                        staticClass: _vm._$g("74-" + $33, "sc"),
-                        attrs: { _i: "74-" + $33 }
+                        staticClass: _vm._$g("73-" + $33, "sc"),
+                        attrs: { _i: "73-" + $33 }
                       },
-                      _vm._l(_vm._$g(75 + "-" + $33, "f"), function(
+                      _vm._l(_vm._$g(74 + "-" + $33, "f"), function(
                         childItem,
                         childIndex,
                         $24,
                         $34
                       ) {
-                        return _vm._$g("75-" + $33 + "-" + $34, "i")
-                          ? _c(
-                              "v-uni-text",
-                              {
-                                key: childItem,
-                                staticClass: _vm._$g(
-                                  "75-" + $33 + "-" + $34,
-                                  "sc"
-                                ),
-                                class: _vm._$g("75-" + $33 + "-" + $34, "c"),
-                                attrs: { _i: "75-" + $33 + "-" + $34 },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.$handleViewEvent($event)
-                                  }
-                                }
-                              },
-                              [_vm._v(_vm._$g("75-" + $33 + "-" + $34, "t0-0"))]
-                            )
-                          : _vm._e()
+                        return _c(
+                          "v-uni-text",
+                          {
+                            key: childItem,
+                            staticClass: _vm._$g("74-" + $33 + "-" + $34, "sc"),
+                            class: _vm._$g("74-" + $33 + "-" + $34, "c"),
+                            attrs: { _i: "74-" + $33 + "-" + $34 },
+                            on: {
+                              click: function($event) {
+                                return _vm.$handleViewEvent($event)
+                              }
+                            }
+                          },
+                          [_vm._v(_vm._$g("74-" + $33 + "-" + $34, "t0-0"))]
+                        )
                       }),
                       1
                     )
@@ -8284,8 +8278,8 @@ var render = function() {
               _c(
                 "v-uni-button",
                 {
-                  staticClass: _vm._$g(76, "sc"),
-                  attrs: { _i: 76 },
+                  staticClass: _vm._$g(75, "sc"),
+                  attrs: { _i: 75 },
                   on: {
                     click: function($event) {
                       return _vm.$handleViewEvent($event)
@@ -8300,7 +8294,7 @@ var render = function() {
         ],
         1
       ),
-      _c("share", { ref: "share", attrs: { _i: 77 } })
+      _c("share", { ref: "share", attrs: { _i: 76 } })
     ],
     1
   )
@@ -8669,7 +8663,7 @@ if(false) {}
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../Software/HBuilderX/plugins/uniapp-cli/node_modules/css-loader/dist/runtime/api.js */ 13);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "@charset \"UTF-8\";\n/* 页面左右间距 */\n/* 文字尺寸 */\n/*文字颜色*/\n/* 边框颜色 */\n/* 图片加载中颜色 */\n/* 行为相关颜色 */\nbody {\n  background: #f8f8f8;\n  padding-bottom: 160upx;\n}\n.icon-you {\n  font-size: 30upx;\n  color: #888;\n}\n.carousel {\n  height: 722upx;\n  position: relative;\n}\n.carousel uni-swiper {\n    height: 100%;\n}\n.carousel .image-wrapper {\n    width: 100%;\n    height: 100%;\n}\n.carousel .swiper-item {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-align-content: center;\n            align-content: center;\n    height: 750upx;\n    overflow: hidden;\n}\n.carousel .swiper-item uni-image {\n      width: 100%;\n      height: 100%;\n}\n/* 标题简介 */\n.introduce-section {\n  background: #fff;\n  padding: 20upx 30upx;\n}\n.introduce-section .title {\n    font-size: 32upx;\n    color: #303133;\n    height: 50upx;\n    line-height: 50upx;\n}\n.introduce-section .price-box {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-align: baseline;\n    -webkit-align-items: baseline;\n            align-items: baseline;\n    height: 64upx;\n    padding: 10upx 0;\n    font-size: 26upx;\n    color: #fa436a;\n}\n.introduce-section .price {\n    font-size: 34upx;\n}\n.introduce-section .m-price {\n    margin: 0 12upx;\n    color: #909399;\n    text-decoration: line-through;\n}\n.introduce-section .coupon-tip {\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    padding: 4upx 10upx;\n    background: #fa436a;\n    font-size: 24upx;\n    color: #fff;\n    border-radius: 6upx;\n    line-height: 1;\n    -webkit-transform: translateY(-4upx);\n            transform: translateY(-4upx);\n}\n.introduce-section .bot-row {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    height: 50upx;\n    font-size: 24upx;\n    color: #909399;\n}\n.introduce-section .bot-row uni-text {\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n              flex: 1;\n}\n/* 分享 */\n.share-section {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n          align-items: center;\n  color: #606266;\n  background: -webkit-linear-gradient(left, #fdf5f6, #fbebf6);\n  background: linear-gradient(left, #fdf5f6, #fbebf6);\n  padding: 12upx 30upx;\n}\n.share-section .share-icon {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    width: 70upx;\n    height: 30upx;\n    line-height: 1;\n    border: 1px solid #fa436a;\n    border-radius: 4upx;\n    position: relative;\n    overflow: hidden;\n    font-size: 22upx;\n    color: #fa436a;\n}\n.share-section .share-icon:after {\n      content: '';\n      width: 50upx;\n      height: 50upx;\n      border-radius: 50%;\n      left: -20upx;\n      top: -12upx;\n      position: absolute;\n      background: #fa436a;\n}\n.share-section .icon-xingxing {\n    position: relative;\n    z-index: 1;\n    font-size: 24upx;\n    margin-left: 2upx;\n    margin-right: 10upx;\n    color: #fff;\n    line-height: 1;\n}\n.share-section .tit {\n    font-size: 28upx;\n    margin-left: 10upx;\n}\n.share-section .icon-bangzhu1 {\n    padding: 10upx;\n    font-size: 30upx;\n    line-height: 1;\n}\n.share-section .share-btn {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    text-align: right;\n    font-size: 24upx;\n    color: #fa436a;\n}\n.share-section .icon-you {\n    font-size: 24upx;\n    margin-left: 4upx;\n    color: #fa436a;\n}\n.c-list {\n  font-size: 26upx;\n  color: #606266;\n  background: #fff;\n}\n.c-list .c-row {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    padding: 20upx 30upx;\n    position: relative;\n}\n.c-list .tit {\n    width: 140upx;\n}\n.c-list .con {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    color: #303133;\n}\n.c-list .con .selected-text {\n      margin-right: 10upx;\n}\n.c-list .bz-list {\n    height: 40upx;\n    font-size: 26upx;\n    color: #303133;\n}\n.c-list .bz-list uni-text {\n      display: inline-block;\n      margin-right: 30upx;\n}\n.c-list .con-list {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    color: #303133;\n    line-height: 40upx;\n}\n.c-list .red {\n    color: #fa436a;\n}\n/* 评价 */\n.eva-section {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n          flex-direction: column;\n  padding: 20upx 30upx;\n  background: #fff;\n  margin-top: 16upx;\n}\n.eva-section .e-header {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    height: 70upx;\n    font-size: 26upx;\n    color: #909399;\n}\n.eva-section .e-header .tit {\n      font-size: 30upx;\n      color: #303133;\n      margin-right: 4upx;\n}\n.eva-section .e-header .tip {\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n              flex: 1;\n      text-align: right;\n}\n.eva-section .e-header .icon-you {\n      margin-left: 10upx;\n}\n.eva-box {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  padding: 20upx 0;\n}\n.eva-box .portrait {\n    -webkit-flex-shrink: 0;\n            flex-shrink: 0;\n    width: 80upx;\n    height: 80upx;\n    border-radius: 100px;\n}\n.eva-box .right {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    font-size: 28upx;\n    color: #606266;\n    padding-left: 26upx;\n}\n.eva-box .right .con {\n      font-size: 28upx;\n      color: #303133;\n      padding: 20upx 0;\n}\n.eva-box .right .bot {\n      display: -webkit-box;\n      display: -webkit-flex;\n      display: flex;\n      -webkit-box-pack: justify;\n      -webkit-justify-content: space-between;\n              justify-content: space-between;\n      font-size: 24upx;\n      color: #909399;\n}\n/*  详情 */\n.detail-desc {\n  background: #fff;\n  margin-top: 16upx;\n}\n.detail-desc .d-header {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    height: 80upx;\n    font-size: 30upx;\n    color: #303133;\n    position: relative;\n}\n.detail-desc .d-header uni-text {\n      padding: 0 20upx;\n      background: #fff;\n      position: relative;\n      z-index: 1;\n}\n.detail-desc .d-header:after {\n      position: absolute;\n      left: 50%;\n      top: 50%;\n      -webkit-transform: translateX(-50%);\n              transform: translateX(-50%);\n      width: 300upx;\n      height: 0;\n      content: '';\n      border-bottom: 1px solid #ccc;\n}\n/* 规格选择弹窗 */\n.attr-content {\n  padding: 10upx 30upx;\n}\n.attr-content .a-t {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n}\n.attr-content .a-t uni-image {\n      width: 170upx;\n      height: 170upx;\n      -webkit-flex-shrink: 0;\n              flex-shrink: 0;\n      margin-top: -40upx;\n      border-radius: 8upx;\n}\n.attr-content .a-t .right {\n      display: -webkit-box;\n      display: -webkit-flex;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n      -webkit-flex-direction: column;\n              flex-direction: column;\n      padding-left: 24upx;\n      font-size: 26upx;\n      color: #606266;\n      line-height: 42upx;\n}\n.attr-content .a-t .right .price {\n        font-size: 32upx;\n        color: #fa436a;\n        margin-bottom: 10upx;\n}\n.attr-content .a-t .right .selected-text {\n        margin-right: 10upx;\n}\n.attr-content .attr-list {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    font-size: 30upx;\n    color: #606266;\n    padding-top: 30upx;\n    padding-left: 10upx;\n}\n.attr-content .item-list {\n    padding: 20upx 0 0;\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-flex-wrap: wrap;\n            flex-wrap: wrap;\n}\n.attr-content .item-list uni-text {\n      display: -webkit-box;\n      display: -webkit-flex;\n      display: flex;\n      -webkit-box-align: center;\n      -webkit-align-items: center;\n              align-items: center;\n      -webkit-box-pack: center;\n      -webkit-justify-content: center;\n              justify-content: center;\n      background: #eee;\n      margin-right: 20upx;\n      margin-bottom: 20upx;\n      border-radius: 100upx;\n      min-width: 60upx;\n      height: 60upx;\n      padding: 0 20upx;\n      font-size: 28upx;\n      color: #303133;\n}\n.attr-content .item-list .selected {\n      background: #fbebee;\n      color: #fa436a;\n}\n/*  弹出层 */\n.popup {\n  position: fixed;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 99;\n}\n.popup.show {\n    display: block;\n}\n.popup.show .mask {\n      -webkit-animation: showPopup 0.2s linear both;\n              animation: showPopup 0.2s linear both;\n}\n.popup.show .layer {\n      -webkit-animation: showLayer 0.2s linear both;\n              animation: showLayer 0.2s linear both;\n}\n.popup.hide .mask {\n    -webkit-animation: hidePopup 0.2s linear both;\n            animation: hidePopup 0.2s linear both;\n}\n.popup.hide .layer {\n    -webkit-animation: hideLayer 0.2s linear both;\n            animation: hideLayer 0.2s linear both;\n}\n.popup.none {\n    display: none;\n}\n.popup .mask {\n    position: fixed;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    z-index: 1;\n    background-color: rgba(0, 0, 0, 0.4);\n}\n.popup .layer {\n    position: fixed;\n    z-index: 99;\n    bottom: 0;\n    width: 100%;\n    min-height: 40vh;\n    border-radius: 10upx 10upx 0 0;\n    background-color: #fff;\n}\n.popup .layer .btn {\n      height: 66upx;\n      line-height: 66upx;\n      border-radius: 100upx;\n      background: #fa436a;\n      font-size: 30upx;\n      color: #fff;\n      margin: 30upx auto 20upx;\n}\n@-webkit-keyframes showPopup {\n0% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n@keyframes showPopup {\n0% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n@-webkit-keyframes hidePopup {\n0% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}\n@keyframes hidePopup {\n0% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}\n@-webkit-keyframes showLayer {\n0% {\n    -webkit-transform: translateY(120%);\n            transform: translateY(120%);\n}\n100% {\n    -webkit-transform: translateY(0%);\n            transform: translateY(0%);\n}\n}\n@keyframes showLayer {\n0% {\n    -webkit-transform: translateY(120%);\n            transform: translateY(120%);\n}\n100% {\n    -webkit-transform: translateY(0%);\n            transform: translateY(0%);\n}\n}\n@-webkit-keyframes hideLayer {\n0% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n100% {\n    -webkit-transform: translateY(120%);\n            transform: translateY(120%);\n}\n}\n@keyframes hideLayer {\n0% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n100% {\n    -webkit-transform: translateY(120%);\n            transform: translateY(120%);\n}\n}\n/* 底部操作菜单 */\n.page-bottom {\n  position: fixed;\n  left: 30upx;\n  bottom: 30upx;\n  z-index: 95;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n          justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n          align-items: center;\n  width: 690upx;\n  height: 100upx;\n  background: rgba(255, 255, 255, 0.9);\n  box-shadow: 0 0 20upx 0 rgba(0, 0, 0, 0.5);\n  border-radius: 16upx;\n}\n.page-bottom .p-b-btn {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    font-size: 24upx;\n    color: #606266;\n    width: 96upx;\n    height: 80upx;\n}\n.page-bottom .p-b-btn .yticon {\n      font-size: 40upx;\n      line-height: 48upx;\n      color: #909399;\n}\n.page-bottom .p-b-btn.active, .page-bottom .p-b-btn.active .yticon {\n      color: #fa436a;\n}\n.page-bottom .p-b-btn .icon-fenxiang2 {\n      font-size: 42upx;\n      -webkit-transform: translateY(-2upx);\n              transform: translateY(-2upx);\n}\n.page-bottom .p-b-btn .icon-shoucang {\n      font-size: 46upx;\n}\n.page-bottom .action-btn-group {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    height: 76upx;\n    border-radius: 100px;\n    overflow: hidden;\n    box-shadow: 0 20upx 40upx -16upx #fa436a;\n    box-shadow: 1px 2px 5px rgba(219, 63, 96, 0.4);\n    background: -webkit-linear-gradient(left, #ffac30, #fa436a, #F56C6C);\n    background: linear-gradient(to right, #ffac30, #fa436a, #F56C6C);\n    margin-left: 20upx;\n    position: relative;\n}\n.page-bottom .action-btn-group:after {\n      content: '';\n      position: absolute;\n      top: 50%;\n      right: 50%;\n      -webkit-transform: translateY(-50%);\n              transform: translateY(-50%);\n      height: 28upx;\n      width: 0;\n      border-right: 1px solid rgba(255, 255, 255, 0.5);\n}\n.page-bottom .action-btn-group .action-btn {\n      display: -webkit-box;\n      display: -webkit-flex;\n      display: flex;\n      -webkit-box-align: center;\n      -webkit-align-items: center;\n              align-items: center;\n      -webkit-box-pack: center;\n      -webkit-justify-content: center;\n              justify-content: center;\n      width: 220upx;\n      height: 100%;\n      font-size: 28upx;\n      padding: 0;\n      border-radius: 0;\n      background: transparent;\n}\n", ""]);
+exports.push([module.i, "@charset \"UTF-8\";\n/* 页面左右间距 */\n/* 文字尺寸 */\n/*文字颜色*/\n/* 边框颜色 */\n/* 图片加载中颜色 */\n/* 行为相关颜色 */\n.contont {\n  width: 100%;\n}\n.contont div {\n    width: 100%;\n}\n.contont img {\n    width: 100%;\n}\nbody {\n  background: #f8f8f8;\n  padding-bottom: 160upx;\n}\n.icon-you {\n  font-size: 30upx;\n  color: #888;\n}\n.carousel {\n  height: 722upx;\n  position: relative;\n}\n.carousel uni-swiper {\n    height: 100%;\n}\n.carousel .image-wrapper {\n    width: 100%;\n    height: 100%;\n}\n.carousel .swiper-item {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-align-content: center;\n            align-content: center;\n    height: 750upx;\n    overflow: hidden;\n}\n.carousel .swiper-item uni-image {\n      width: 100%;\n      height: 100%;\n}\n/* 标题简介 */\n.introduce-section {\n  background: #fff;\n  padding: 20upx 30upx;\n}\n.introduce-section .title {\n    font-size: 32upx;\n    color: #303133;\n    height: 50upx;\n    line-height: 50upx;\n}\n.introduce-section .price-box {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-align: baseline;\n    -webkit-align-items: baseline;\n            align-items: baseline;\n    height: 64upx;\n    padding: 10upx 0;\n    font-size: 26upx;\n    color: #fa436a;\n}\n.introduce-section .price {\n    font-size: 34upx;\n}\n.introduce-section .m-price {\n    margin: 0 12upx;\n    color: #909399;\n    text-decoration: line-through;\n}\n.introduce-section .coupon-tip {\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    padding: 4upx 10upx;\n    background: #fa436a;\n    font-size: 24upx;\n    color: #fff;\n    border-radius: 6upx;\n    line-height: 1;\n    -webkit-transform: translateY(-4upx);\n            transform: translateY(-4upx);\n}\n.introduce-section .bot-row {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    height: 50upx;\n    font-size: 24upx;\n    color: #909399;\n}\n.introduce-section .bot-row uni-text {\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n              flex: 1;\n}\n/* 分享 */\n.share-section {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n          align-items: center;\n  color: #606266;\n  background: -webkit-linear-gradient(left, #fdf5f6, #fbebf6);\n  background: linear-gradient(left, #fdf5f6, #fbebf6);\n  padding: 12upx 30upx;\n}\n.share-section .share-icon {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    width: 70upx;\n    height: 30upx;\n    line-height: 1;\n    border: 1px solid #fa436a;\n    border-radius: 4upx;\n    position: relative;\n    overflow: hidden;\n    font-size: 22upx;\n    color: #fa436a;\n}\n.share-section .share-icon:after {\n      content: '';\n      width: 50upx;\n      height: 50upx;\n      border-radius: 50%;\n      left: -20upx;\n      top: -12upx;\n      position: absolute;\n      background: #fa436a;\n}\n.share-section .icon-xingxing {\n    position: relative;\n    z-index: 1;\n    font-size: 24upx;\n    margin-left: 2upx;\n    margin-right: 10upx;\n    color: #fff;\n    line-height: 1;\n}\n.share-section .tit {\n    font-size: 28upx;\n    margin-left: 10upx;\n}\n.share-section .icon-bangzhu1 {\n    padding: 10upx;\n    font-size: 30upx;\n    line-height: 1;\n}\n.share-section .share-btn {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    text-align: right;\n    font-size: 24upx;\n    color: #fa436a;\n}\n.share-section .icon-you {\n    font-size: 24upx;\n    margin-left: 4upx;\n    color: #fa436a;\n}\n.c-list {\n  font-size: 26upx;\n  color: #606266;\n  background: #fff;\n}\n.c-list .c-row {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    padding: 20upx 30upx;\n    position: relative;\n}\n.c-list .tit {\n    width: 140upx;\n}\n.c-list .con {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    color: #303133;\n}\n.c-list .con .selected-text {\n      margin-right: 10upx;\n}\n.c-list .bz-list {\n    height: 40upx;\n    font-size: 26upx;\n    color: #303133;\n}\n.c-list .bz-list uni-text {\n      display: inline-block;\n      margin-right: 30upx;\n}\n.c-list .con-list {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    color: #303133;\n    line-height: 40upx;\n}\n.c-list .red {\n    color: #fa436a;\n}\n/* 评价 */\n.eva-section {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n          flex-direction: column;\n  padding: 20upx 30upx;\n  background: #fff;\n  margin-top: 16upx;\n}\n.eva-section .e-header {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    height: 70upx;\n    font-size: 26upx;\n    color: #909399;\n}\n.eva-section .e-header .tit {\n      font-size: 30upx;\n      color: #303133;\n      margin-right: 4upx;\n}\n.eva-section .e-header .tip {\n      -webkit-box-flex: 1;\n      -webkit-flex: 1;\n              flex: 1;\n      text-align: right;\n}\n.eva-section .e-header .icon-you {\n      margin-left: 10upx;\n}\n.eva-box {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  padding: 20upx 0;\n}\n.eva-box .portrait {\n    -webkit-flex-shrink: 0;\n            flex-shrink: 0;\n    width: 80upx;\n    height: 80upx;\n    border-radius: 100px;\n}\n.eva-box .right {\n    -webkit-box-flex: 1;\n    -webkit-flex: 1;\n            flex: 1;\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    font-size: 28upx;\n    color: #606266;\n    padding-left: 26upx;\n}\n.eva-box .right .con {\n      font-size: 28upx;\n      color: #303133;\n      padding: 20upx 0;\n}\n.eva-box .right .bot {\n      display: -webkit-box;\n      display: -webkit-flex;\n      display: flex;\n      -webkit-box-pack: justify;\n      -webkit-justify-content: space-between;\n              justify-content: space-between;\n      font-size: 24upx;\n      color: #909399;\n}\n/*  详情 */\n.detail-desc {\n  background: #fff;\n  margin-top: 16upx;\n}\n.detail-desc .d-header {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    height: 80upx;\n    font-size: 30upx;\n    color: #303133;\n    position: relative;\n}\n.detail-desc .d-header uni-text {\n      padding: 0 20upx;\n      background: #fff;\n      position: relative;\n      z-index: 1;\n}\n.detail-desc .d-header:after {\n      position: absolute;\n      left: 50%;\n      top: 50%;\n      -webkit-transform: translateX(-50%);\n              transform: translateX(-50%);\n      width: 300upx;\n      height: 0;\n      content: '';\n      border-bottom: 1px solid #ccc;\n}\n/* 规格选择弹窗 */\n.attr-content {\n  padding: 10upx 30upx;\n}\n.attr-content .a-t {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n}\n.attr-content .a-t uni-image {\n      width: 170upx;\n      height: 170upx;\n      -webkit-flex-shrink: 0;\n              flex-shrink: 0;\n      margin-top: -40upx;\n      border-radius: 8upx;\n}\n.attr-content .a-t .right {\n      display: -webkit-box;\n      display: -webkit-flex;\n      display: flex;\n      -webkit-box-orient: vertical;\n      -webkit-box-direction: normal;\n      -webkit-flex-direction: column;\n              flex-direction: column;\n      padding-left: 24upx;\n      font-size: 26upx;\n      color: #606266;\n      line-height: 42upx;\n}\n.attr-content .a-t .right .price {\n        font-size: 32upx;\n        color: #fa436a;\n        margin-bottom: 10upx;\n}\n.attr-content .a-t .right .selected-text {\n        margin-right: 10upx;\n}\n.attr-content .attr-list {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    font-size: 30upx;\n    color: #606266;\n    padding-top: 30upx;\n    padding-left: 10upx;\n}\n.attr-content .item-list {\n    padding: 20upx 0 0;\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-flex-wrap: wrap;\n            flex-wrap: wrap;\n}\n.attr-content .item-list uni-text {\n      display: -webkit-box;\n      display: -webkit-flex;\n      display: flex;\n      -webkit-box-align: center;\n      -webkit-align-items: center;\n              align-items: center;\n      -webkit-box-pack: center;\n      -webkit-justify-content: center;\n              justify-content: center;\n      background: #eee;\n      margin-right: 20upx;\n      margin-bottom: 20upx;\n      border-radius: 100upx;\n      min-width: 60upx;\n      height: 60upx;\n      padding: 0 20upx;\n      font-size: 28upx;\n      color: #303133;\n}\n.attr-content .item-list .selected {\n      background: #fbebee;\n      color: #fa436a;\n}\n/*  弹出层 */\n.popup {\n  position: fixed;\n  left: 0;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  z-index: 99;\n}\n.popup.show {\n    display: block;\n}\n.popup.show .mask {\n      -webkit-animation: showPopup 0.2s linear both;\n              animation: showPopup 0.2s linear both;\n}\n.popup.show .layer {\n      -webkit-animation: showLayer 0.2s linear both;\n              animation: showLayer 0.2s linear both;\n}\n.popup.hide .mask {\n    -webkit-animation: hidePopup 0.2s linear both;\n            animation: hidePopup 0.2s linear both;\n}\n.popup.hide .layer {\n    -webkit-animation: hideLayer 0.2s linear both;\n            animation: hideLayer 0.2s linear both;\n}\n.popup.none {\n    display: none;\n}\n.popup .mask {\n    position: fixed;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    z-index: 1;\n    background-color: rgba(0, 0, 0, 0.4);\n}\n.popup .layer {\n    position: fixed;\n    z-index: 99;\n    bottom: 0;\n    width: 100%;\n    min-height: 40vh;\n    border-radius: 10upx 10upx 0 0;\n    background-color: #fff;\n}\n.popup .layer .btn {\n      height: 66upx;\n      line-height: 66upx;\n      border-radius: 100upx;\n      background: #fa436a;\n      font-size: 30upx;\n      color: #fff;\n      margin: 30upx auto 20upx;\n}\n@-webkit-keyframes showPopup {\n0% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n@keyframes showPopup {\n0% {\n    opacity: 0;\n}\n100% {\n    opacity: 1;\n}\n}\n@-webkit-keyframes hidePopup {\n0% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}\n@keyframes hidePopup {\n0% {\n    opacity: 1;\n}\n100% {\n    opacity: 0;\n}\n}\n@-webkit-keyframes showLayer {\n0% {\n    -webkit-transform: translateY(120%);\n            transform: translateY(120%);\n}\n100% {\n    -webkit-transform: translateY(0%);\n            transform: translateY(0%);\n}\n}\n@keyframes showLayer {\n0% {\n    -webkit-transform: translateY(120%);\n            transform: translateY(120%);\n}\n100% {\n    -webkit-transform: translateY(0%);\n            transform: translateY(0%);\n}\n}\n@-webkit-keyframes hideLayer {\n0% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n100% {\n    -webkit-transform: translateY(120%);\n            transform: translateY(120%);\n}\n}\n@keyframes hideLayer {\n0% {\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n}\n100% {\n    -webkit-transform: translateY(120%);\n            transform: translateY(120%);\n}\n}\n/* 底部操作菜单 */\n.page-bottom {\n  position: fixed;\n  left: 30upx;\n  bottom: 30upx;\n  z-index: 95;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n          justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n          align-items: center;\n  width: 690upx;\n  height: 100upx;\n  background: rgba(255, 255, 255, 0.9);\n  box-shadow: 0 0 20upx 0 rgba(0, 0, 0, 0.5);\n  border-radius: 16upx;\n}\n.page-bottom .p-b-btn {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n    -webkit-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n            align-items: center;\n    -webkit-box-pack: center;\n    -webkit-justify-content: center;\n            justify-content: center;\n    font-size: 24upx;\n    color: #606266;\n    width: 96upx;\n    height: 80upx;\n}\n.page-bottom .p-b-btn .yticon {\n      font-size: 40upx;\n      line-height: 48upx;\n      color: #909399;\n}\n.page-bottom .p-b-btn.active, .page-bottom .p-b-btn.active .yticon {\n      color: #fa436a;\n}\n.page-bottom .p-b-btn .icon-fenxiang2 {\n      font-size: 42upx;\n      -webkit-transform: translateY(-2upx);\n              transform: translateY(-2upx);\n}\n.page-bottom .p-b-btn .icon-shoucang {\n      font-size: 46upx;\n}\n.page-bottom .action-btn-group {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: flex;\n    height: 76upx;\n    border-radius: 100px;\n    overflow: hidden;\n    box-shadow: 0 20upx 40upx -16upx #fa436a;\n    box-shadow: 1px 2px 5px rgba(219, 63, 96, 0.4);\n    background: -webkit-linear-gradient(left, #ffac30, #fa436a, #F56C6C);\n    background: linear-gradient(to right, #ffac30, #fa436a, #F56C6C);\n    margin-left: 20upx;\n    position: relative;\n}\n.page-bottom .action-btn-group:after {\n      content: '';\n      position: absolute;\n      top: 50%;\n      right: 50%;\n      -webkit-transform: translateY(-50%);\n              transform: translateY(-50%);\n      height: 28upx;\n      width: 0;\n      border-right: 1px solid rgba(255, 255, 255, 0.5);\n}\n.page-bottom .action-btn-group .action-btn {\n      display: -webkit-box;\n      display: -webkit-flex;\n      display: flex;\n      -webkit-box-align: center;\n      -webkit-align-items: center;\n              align-items: center;\n      -webkit-box-pack: center;\n      -webkit-justify-content: center;\n              justify-content: center;\n      width: 220upx;\n      height: 100%;\n      font-size: 28upx;\n      padding: 0;\n      border-radius: 0;\n      background: transparent;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
