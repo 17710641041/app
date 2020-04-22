@@ -1,6 +1,6 @@
 {
     "name" : "蚂蚁海淘",
-    "appid" : "__UNI__E5E0CC0",
+    "appid" : "__UNI__5BC082F",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -47,7 +47,9 @@
             },
             "ios" : {},
             /* ios打包配置 */
-            "sdkConfigs" : {}
+            "sdkConfigs" : {
+                "ad" : {}
+            }
         }
     },
     /* SDK配置 */
