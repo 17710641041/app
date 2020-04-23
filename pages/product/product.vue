@@ -88,7 +88,7 @@
 			<view class="d-header">
 				<text>图文详情</text>
 			</view>
-			<rich-text class="contont" :nodes="goodsData.description|formatRichText"></rich-text>
+			<rich-text class="contont" v-if="goodsData.description" :nodes="goodsData.description|formatRichText"></rich-text>
 		</view>
 		
 		<!-- 底部操作菜单 -->
@@ -97,14 +97,10 @@
 				<text class="yticon icon-xiatubiao--copy"></text>
 				<text>首页</text>
 			</navigator>
-			<navigator url="/pages/cart/cart" open-type="switchTab" class="p-b-btn">
+			<view @click="addCart" class="p-b-btn">
 				<text class="yticon icon-gouwuche"></text>
 				<text>加购</text>
-			</navigator>
-			<!-- <view class="p-b-btn" :class="{active: favorite}" @click="toFavorite">
-				<text class="yticon icon-shoucang"></text>
-				<text>收藏</text>
-			</view> -->
+			</view>
 			
 			<view class="action-btn-group">
 				<button type="primary" class=" action-btn no-border buy-now-btn" @click="buy">自购省钱</button>
@@ -160,6 +156,9 @@
 			:contentHeight="400"
 			:shareList="shareList"
 		></share>
+		
+		<view class="qrcode" v-if="isQrCode"></view>
+		
 	</view>
 </template>
 
@@ -167,19 +166,23 @@
 	import {contactInterface} from '@/libs/api.js';
 	import http from '@/libs/http.js';
 	import share from '@/components/share';
+
 	export default{
 		components: {
 			share
 		},
 		data() {
 			return {
-				goodsid:'',
-				goodsData:'',
+				isQrCode : false,
+				hasLogin: false,
+				userInfo: '',
+				goodsid: '',
+				goodsData: '',
 				specClass: 'none',
-				specSelected:[],
+				specSelected: [],
 				favorite: true,
-				shareList: [],
-			};
+				shareList: []
+			}
 		},
 		async onLoad(options){
 			this.goodsid = options.id;
@@ -187,7 +190,11 @@
 			this.shareList = await this.$api.json('shareList');
 		},
 		onShow(){
-			
+			const user = uni.getStorageSync('user');
+			if(user){
+				this.hasLogin = true;
+				this.userInfo = user
+			}
 		},
 		filters: {
 			/**
@@ -211,11 +218,40 @@
 					return match;
 				});
 				newContent = newContent.replace(/<br[^>]*\/>/gi, '');
-				newContent = newContent.replace(/\<img/gi, '<img style="max-width:100%;height:auto;display:inline-block;margin:10rpx auto;"');
+				newContent = newContent.replace(/\<img/gi, '<img style="max-width:100%;height:auto;display:inline-block;margin:0 auto"');
 				return newContent;
 			}	
 		},
 		methods:{
+			addCart(){
+				let _this = this;
+				console.log(_this.goodsData)
+				if(this.hasLogin){
+					let data = {
+						uid : _this.userInfo.uid,
+						goods_name: _this.goodsData.goods_name,
+						goods_id: _this.goodsData.goods_id,
+						count: '1',
+						price: _this.goodsData.promotion_price,
+						sku_id: _this.goodsData.skuid,
+						sku_name: _this.specSelected.toString(),
+						head_img:_this.goodsData.img_list[0]
+					}
+					let opts = { url: contactInterface.addCart, method: 'post'};
+					let param = data;
+					http.httpRequest(opts, param).then(res => {
+						if(res.data.code ==1){
+							this.$api.msg('添加购物车成功');
+						}
+					},error => {console.log(error);})
+					
+					
+				}else{
+					uni.navigateTo({
+						url: '/pages/public/login'
+					});
+				}
+			},
 			itemsFun(){
 				let _this = this;
 				let datas = _this.goodsData.goods_attribute_list;
@@ -232,7 +268,6 @@
 					if(res.data.code == 1){
 						_this.goodsData = res.data.data;
 						_this.itemsFun();
-						console.log(res.data.data)
 					}
 				},error => {console.log(error);})
 			},
@@ -271,16 +306,24 @@
 			},
 			//分享
 			share(){
-				this.$refs.share.toggleMask();	
-			},
-			//收藏
-			toFavorite(){
-				this.favorite = !this.favorite;
+				if(this.hasLogin){
+					this.$refs.share.toggleMask();
+				}else{
+					uni.navigateTo({
+						url: '/pages/public/login'
+					});
+				}
 			},
 			buy(){
-				uni.navigateTo({
-					url: `/pages/order/createOrder`
-				})
+				if(this.hasLogin){
+					uni.navigateTo({
+						url: `/pages/order/createOrder`
+					})
+				}else{
+					uni.navigateTo({
+						url: '/pages/public/login'
+					});
+				}
 			},
 			stopPrevent(){}
 		},
@@ -289,6 +332,15 @@
 </script>
 
 <style lang='scss'>
+	.qrcode{
+		position:fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 998;
+		background: rgba(0,0,0,.5);
+	}
 	.contont{
 		width: 100%;
 		div{

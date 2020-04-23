@@ -8,6 +8,7 @@ const contactInterface = {
   //导航
   nav: `${api}/shop/index/nav`,
   //分类
+
   classList: `${api}/shop/index/index`,
   //登录
   userLogin: `${api}/shop/Member/userLogin`,
@@ -18,6 +19,12 @@ const contactInterface = {
   //为您推荐
   goodsList: `${api}/shop/Goods/goodslist`,
   //商品详情
-  goodsinfos : `${api}/shop/Goods/goodsinfos`
+  goodsinfos: `${api}/shop/Goods/goodsinfos`,
+  //加入购物测
+  addCart: `${api}/shop/Goods/addCart`,
+  //购物车列表
+  cartList: `${api}/shop/Goods/cart`,
+  //删除购物车信息
+  deleteShoppingCartById : `${api}/shop/Goods/deleteShoppingCartById`
 }
 export { contactInterface }

@@ -5,9 +5,9 @@
 		<view class="right-top-sign"></view>
 		<!-- 设置白色背景防止软键盘把下部绝对定位元素顶上来盖住输入框等 -->
 		<view class="wrapper">
-			<view class="left-top-sign">LOGIN</view>
+			<view class="left-top-sign">蚂蚁海淘</view>
 			<view class="welcome">
-				欢迎回来！
+				立即登录
 			</view>
 			<view class="input-content">
 				<view class="input-item">
@@ -60,7 +60,7 @@
 			}
 		},
 		onLoad(){
-			this.getUserData()
+			
 		},
 		methods: {
 			inputChange(e){
@@ -73,13 +73,16 @@
 			toRegist(){
 				this.$api.msg('去注册');
 			},
-			getUserData(){
+			getUserData(token){
+				let _this = this;
 				let opts={ url: contactInterface.getMemberDetail, method: 'post'};
 				let param={
-					token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IjExMTExIiwicHdkIjoiMTExMTEifQ.6RuXtiU2xk6bBhJMbZDQfw1gDAWZ__gOh7mwe9Ch9Ow'
+					token: token
 				};
 				http.httpRequest(opts, param).then(res => {
-					console.log(res)
+					uni.setStorageSync('user', res.data.data.user_info);
+					_this.logining = false;
+					uni.navigateBack();
 				},error => {console.log(error);})
 			},
 			toLogin(){
@@ -93,7 +96,7 @@
 				};
 				http.httpRequest(opts, param).then(res => {
 					if(res.data.code == 1){
-						//_this.getUserData();
+						_this.getUserData(res.data.token);
 					}else{
 						console.log("登录返回数据",res.data.msg)
 						this.$api.msg(res.data.msg);

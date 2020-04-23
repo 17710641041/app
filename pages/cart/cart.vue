@@ -15,18 +15,17 @@
 		<view v-else>
 			<!-- 列表 -->
 			<view class="cart-list">
-				<block v-for="(item, index) in cartList" :key="item.id">
+				<block v-for="(item, index) in cartList" :key="item.cart_id">
 					<view
 						class="cart-item" 
 						:class="{'b-b': index!==cartList.length-1}"
 					>
-						<view class="image-wrapper">
-							<image :src="item.image" 
-								:class="[item.loaded]"
+						<!-- @load="onImageLoad('cartList', index)"
+						@error="onImageError('cartList', index)"
+						 lazy-load :class="[item.loaded]"-->
+						<view class="image-wrapper-cs">
+							<image :src="item.goods_picture" 
 								mode="aspectFill" 
-								lazy-load 
-								@load="onImageLoad('cartList', index)" 
-								@error="onImageError('cartList', index)"
 							></image>
 							<view 
 								class="yticon icon-xuanzhong2 checkbox"
@@ -35,16 +34,16 @@
 							></view>
 						</view>
 						<view class="item-right">
-							<text class="clamp title">{{item.title}}</text>
-							<text class="attr">{{item.attr_val}}</text>
+							<text class="clamp title">{{item.goods_name}}</text>
+							<text class="attr">{{item.sku_name}}</text>
 							<text class="price">¥{{item.price}}</text>
 							<uni-number-box 
 								class="step"
 								:min="1" 
-								:max="item.stock"
-								:value="item.number>item.stock?item.stock:item.number"
-								:isMax="item.number>=item.stock?true:false"
-								:isMin="item.number===1"
+								:max="99"
+								:value="item.num>99?99:item.num"
+								:isMax="item.num>=99?true:false"
+								:isMin="item.num===1"
 								:index="index"
 								@eventChange="numberChange"
 							></uni-number-box>
@@ -83,6 +82,8 @@
 	import {
 		mapState
 	} from 'vuex';
+	import {contactInterface} from '@/libs/api.js';
+	import http from '@/libs/http.js';
 	import uniNumberBox from '@/components/uni-number-box.vue'
 	export default {
 		components: {
@@ -90,6 +91,7 @@
 		},
 		data() {
 			return {
+				hasLogin:false,
 				total: 0, //总价格
 				allChecked: false, //全选状态  true|false
 				empty: false, //空白页现实  true|false
@@ -97,7 +99,16 @@
 			};
 		},
 		onLoad(){
-			this.loadData();
+			//this.loadData();
+			
+		},
+		onShow(){
+			const user = uni.getStorageSync('user');
+			if(user){
+				this.hasLogin = true;
+				this.userInfo = user
+			}
+			this.getData();
 		},
 		watch:{
 			//显示空白页
@@ -109,9 +120,23 @@
 			}
 		},
 		computed:{
-			...mapState(['hasLogin'])
+			
 		},
 		methods: {
+			getData(){
+				let _this = this;
+				let opts = { url: contactInterface.cartList, method: 'get'};
+				let param = {uid : _this.userInfo.uid};
+				http.httpRequest(opts, param).then(res => {
+					let cartList = res.data.data.map(item=>{
+						item.checked = true;
+						return item;
+					});
+					_this.cartList = cartList;
+					_this.calcTotal();//计算总价
+					console.log(_this.cartList)
+				},error => {console.log(error);})
+			},
 			//请求数据
 			async loadData(){
 				let list = await this.$api.json('cartList'); 
@@ -124,11 +149,11 @@
 			},
 			//监听image加载完成
 			onImageLoad(key, index) {
-				this.$set(this[key][index], 'loaded', 'loaded');
+				//this.$set(this[key][index], 'loaded', 'loaded');
 			},
 			//监听image加载失败
 			onImageError(key, index) {
-				this[key][index].image = '/static/errorImage.jpg';
+				//this[key][index].image = '/static/errorImage.jpg';
 			},
 			navToLogin(){
 				uni.navigateTo({
@@ -151,18 +176,24 @@
 			},
 			//数量
 			numberChange(data){
-				this.cartList[data.index].number = data.number;
+				this.cartList[data.index].num = data.number;
 				this.calcTotal();
 			},
 			//删除
 			deleteCartItem(index){
 				let list = this.cartList;
 				let row = list[index];
-				let id = row.id;
-
-				this.cartList.splice(index, 1);
-				this.calcTotal();
-				uni.hideLoading();
+				let _this = this;
+				let opts = { url: contactInterface.deleteShoppingCartById, method: 'post'};
+				let param = {uid : _this.userInfo.uid ,cart_id : row.cart_id};
+				http.httpRequest(opts, param).then(res => {
+					_this.cartList.splice(index, 1);
+					_this.calcTotal();
+					uni.hideLoading();
+				},error => {console.log(error);})
+				// this.cartList.splice(index, 1);
+				// this.calcTotal();
+				// uni.hideLoading();
 			},
 			//清空
 			clearCart(){
@@ -186,7 +217,7 @@
 				let checked = true;
 				list.forEach(item=>{
 					if(item.checked === true){
-						total += item.price * item.number;
+						total += Number(item.price) * Number(item.num);
 					}else if(checked === true){
 						checked = false;
 					}
@@ -219,6 +250,16 @@
 </script>
 
 <style lang='scss'>
+	.image-wrapper-cs{
+		width: 230upx;
+		height: 230upx;
+		position: relative;
+		image{
+			width: 230upx;
+			height: 230upx;
+			border-radius: 10upx;
+		}
+	}
 	.container{
 		padding-bottom: 134upx;
 		/* 空白页 */
@@ -347,10 +388,10 @@
 			color: #fff;
 			background: $font-color-disabled;
 			border-radius:0 50px 50px 0;
-			opacity: 0;
+			/* opacity: 0; */
 			transition: .2s;
 			&.show{
-				opacity: 1;
+				/* opacity: 1; */
 				width: 120upx;
 			}
 		}

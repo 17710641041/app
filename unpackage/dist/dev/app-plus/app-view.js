@@ -8061,10 +8061,12 @@ var render = function() {
             [_c("v-uni-text", { attrs: { _i: 49 } }, [_vm._v("图文详情")])],
             1
           ),
-          _c("v-uni-rich-text", {
-            staticClass: _vm._$g(50, "sc"),
-            attrs: { nodes: _vm._$g(50, "a-nodes"), _i: 50 }
-          })
+          _vm._$g(50, "i")
+            ? _c("v-uni-rich-text", {
+                staticClass: _vm._$g(50, "sc"),
+                attrs: { nodes: _vm._$g(50, "a-nodes"), _i: 50 }
+              })
+            : _vm._e()
         ],
         1
       ),
@@ -8092,13 +8094,14 @@ var render = function() {
             1
           ),
           _c(
-            "v-uni-navigator",
+            "v-uni-view",
             {
               staticClass: _vm._$g(55, "sc"),
-              attrs: {
-                url: "/pages/cart/cart",
-                "open-type": "switchTab",
-                _i: 55
+              attrs: { _i: 55 },
+              on: {
+                click: function($event) {
+                  return _vm.$handleViewEvent($event)
+                }
               }
             },
             [
@@ -10003,12 +10006,12 @@ var render = function() {
           _c(
             "v-uni-view",
             { staticClass: _vm._$g(5, "sc"), attrs: { _i: 5 } },
-            [_vm._v("LOGIN")]
+            [_vm._v("蚂蚁海淘")]
           ),
           _c(
             "v-uni-view",
             { staticClass: _vm._$g(6, "sc"), attrs: { _i: 6 } },
-            [_vm._v("\n\t\t\t欢迎回来！\n\t\t")]
+            [_vm._v("\n\t\t\t立即登录\n\t\t")]
           ),
           _c(
             "v-uni-view",

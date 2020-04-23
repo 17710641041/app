@@ -257,12 +257,6 @@
 				"selectedIconPath": "static/tab-ck-current.png",
 				"text": "广场"
 			},
-			// {
-			// 	"pagePath": "pages/Share/Share",
-			// 	"iconPath": "static/tab-csj.png",
-			// 	"selectedIconPath": "static/tab-csj-current.png",
-			// 	"text": "矿机"
-			// },
 			{
 				"pagePath": "pages/cart/cart",
 				"iconPath": "static/tab-cart.png",

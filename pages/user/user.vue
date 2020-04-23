@@ -5,10 +5,10 @@
 			<image class="bg" src="/static/user-bg.jpg"></image>
 			<view class="user-info-box">
 				<view class="portrait-box">
-					<image class="portrait" :src="userInfo.portrait || '/static/missing-face.png'"></image>
+					<image class="portrait" :src="userInfo.user_headimg || '/static/missing-face.png'"></image>
 				</view>
 				<view class="info-box">
-					<text class="username">{{userInfo.nickname || '游客'}}</text>
+					<text class="username">{{userInfo.nick_name || '立即登录'}}</text>
 				</view>
 			</view>
 			<view class="vip-card-box">
@@ -86,9 +86,6 @@
 </template>  
 <script>  
 	import listCell from '@/components/mix-list-cell';
-    import {  
-        mapState 
-    } from 'vuex';  
 	let startY = 0, moveY = 0, pageAtTop = true;
     export default {
 		components: {
@@ -96,6 +93,8 @@
 		},
 		data(){
 			return {
+				hasLogin: false,
+				userInfo: '',
 				coverTransform: 'translateY(0px)',
 				coverTransition: '0s',
 				moving: false,
@@ -103,28 +102,15 @@
 		},
 		onLoad(){
 		},
-		// #ifndef MP
-		onNavigationBarButtonTap(e) {
-			const index = e.index;
-			if (index === 0) {
-				this.navTo('/pages/set/set');
-			}else if(index === 1){
-				// #ifdef APP-PLUS
-				const pages = getCurrentPages();
-				const page = pages[pages.length - 1];
-				const currentWebview = page.$getAppWebview();
-				currentWebview.hideTitleNViewButtonRedDot({
-					index
-				});
-				// #endif
-				uni.navigateTo({
-					url: '/pages/notice/notice'
-				})
-			}
-		},
-		// #endif
         computed: {
-			...mapState(['hasLogin','userInfo'])
+			//...mapState(['hasLogin','userInfo'])
+		},
+		onShow(){
+			const user = uni.getStorageSync('user');
+			if(user){
+				this.hasLogin = true;
+				this.userInfo = user
+			}
 		},
         methods: {
 
