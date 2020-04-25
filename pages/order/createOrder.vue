@@ -155,6 +155,8 @@
 			}
 		},
 		onLoad(option){
+			console.log(11111,option)
+			console.log(1212,JSON.parse(option.data))
 			//商品数据
 			//let data = JSON.parse(option.data);
 			//console.log(data);

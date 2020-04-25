@@ -10,8 +10,8 @@
 		</view>
 		<view class="row b-b">
 			<text class="tit">地址</text>
-			<text @click="chooseLocation" class="input">
-				{{addressData.addressName}}
+			<text @tap="popup_bottom()" class="input">
+				{{address}}
 			</text>
 			<text class="yticon icon-shouhuodizhi"></text>
 		</view>
@@ -20,6 +20,11 @@
 			<input class="input" type="text" v-model="addressData.area" placeholder="楼号、门牌" placeholder-class="placeholder" />
 		</view>
 		
+		<addRess
+			ref="linkAddress"
+			:height="height"
+			@confirmCallback="confirmCallback"
+		></addRess>
 		<view class="row default-row">
 			<text class="tit">设为默认</text>
 			<switch :checked="addressData.defaule" color="#fa436a" @change="switchChange" />
@@ -29,9 +34,16 @@
 </template>
 
 <script>
+	import addRess from '../../components/address/address.vue'
 	export default {
+		components:{
+			addRess
+		},
 		data() {
 			return {
+				height: '500px',
+				address:'请选择地址',
+				addPush:'',
 				addressData: {
 					name: '',
 					mobile: '',
@@ -43,6 +55,7 @@
 			}
 		},
 		onLoad(option){
+			console.log(option)
 			let title = '新增收货地址';
 			if(option.type==='edit'){
 				title = '编辑收货地址'
@@ -55,22 +68,50 @@
 			})
 		},
 		methods: {
+			//点击弹出弹窗
+			popup_bottom() {
+				this.height = '550rpx';
+				//显示
+				this.show_popup();
+			},
+			//显示弹窗
+			show_popup(){
+				this.$refs.linkAddress.show();
+			},
+			//回掉
+			confirmCallback(val) {
+				this.addPush ={
+					province:val.province_id,
+					city:val.city_id,
+					district:val.district_id,
+				}
+					
+				this.address=val.province+val.city+val.district;
+			},
 			switchChange(e){
 				this.addressData.default = e.detail;
 			},
 			
 			//地图选择地址
 			chooseLocation(){
-				uni.chooseLocation({
-					success: (data)=> {
-						this.addressData.addressName = data.name;
-						this.addressData.address = data.name;
-					}
-				})
+				uni.getLocation({
+				    type: 'wgs84',
+					geocode:true,
+				    success: function (res) {
+				        console.log(res)
+				    }
+				});
+				// uni.chooseLocation({
+				// 	success: (data)=> {
+				// 		this.addressData.addressName = data.name;
+				// 		this.addressData.address = data.name;
+				// 	}
+				// })
 			},
 			
 			//提交
 			confirm(){
+				console.log(this.addressData)
 				let data = this.addressData;
 				if(!data.name){
 					this.$api.msg('请填写收货人姓名');
@@ -90,11 +131,11 @@
 				}
 				
 				//this.$api.prePage()获取上一页实例，可直接调用上页所有数据和方法，在App.vue定义
-				this.$api.prePage().refreshList(data, this.manageType);
-				this.$api.msg(`地址${this.manageType=='edit' ? '修改': '添加'}成功`);
-				setTimeout(()=>{
-					uni.navigateBack()
-				}, 800)
+				// this.$api.prePage().refreshList(data, this.manageType);
+				// this.$api.msg(`地址${this.manageType=='edit' ? '修改': '添加'}成功`);
+				// setTimeout(()=>{
+				// 	uni.navigateBack()
+				// }, 800)
 			},
 		}
 	}

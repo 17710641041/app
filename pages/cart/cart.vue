@@ -230,20 +230,23 @@
 				let list = this.cartList;
 				let goodsData = [];
 				list.forEach(item=>{
+					console.log(item)
 					if(item.checked){
-						goodsData.push({
-							attr_val: item.attr_val,
-							number: item.number
-						})
+						// goodsData.push({
+						// 	attr_val: item.attr_val,
+						// 	number: item.number
+						// })
+						goodsData.push(item.cart_id)
 					}
 				})
-
+				console.log(111,goodsData)
+				console.log(list)
 				uni.navigateTo({
 					url: `/pages/order/createOrder?data=${JSON.stringify({
 						goodsData: goodsData
 					})}`
 				})
-				this.$api.msg('跳转下一页 sendData');
+				//this.$api.msg('跳转下一页 sendData');
 			}
 		}
 	}
