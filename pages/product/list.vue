@@ -155,21 +155,9 @@
 			//商品详情
 			goodsListTap(e) {
 				console.log(e);
-				if(e.index==0) {
-					uni.navigateTo({
-						url: '/pages/goods/goods'
-					});
-				} else if(e.index == 2) {
-					uni.navigateTo({
-						url: '/pages/goods/second_hand'
-					});
-				} else if(e.index == 3) {
-					uni.navigateTo({
-						url: '/pages/goods/second_terrace'
-					});
-				} else {
-					
-				}
+				uni.navigateTo({
+					url: `/pages/product/product?id=${e.data.goodsid}`
+				})
 			},
 			//加载分类
 			async loadCateList(fid, sid){

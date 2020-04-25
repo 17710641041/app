@@ -66,11 +66,7 @@
 				</view>
 				<view class="total-box">
 					<text class="price">¥{{total}}</text>
-					<text class="coupon">
-						已优惠
-						<text>74.35</text>
-						元
-					</text>
+					<text class="coupon">已优惠<text>74.35</text>元</text>
 				</view>
 				<button type="primary" class="no-border confirm-btn" @click="createOrder">去结算</button>
 			</view>

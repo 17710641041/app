@@ -25,6 +25,14 @@ const contactInterface = {
   //购物车列表
   cartList: `${api}/shop/Goods/cart`,
   //删除购物车信息
-  deleteShoppingCartById : `${api}/shop/Goods/deleteShoppingCartById`
+  deleteShoppingCartById : `${api}/shop/Goods/deleteShoppingCartById`,
+  //添加收货地址
+  addressInsert: `${api}/shop/Member/addressInsert`,
+  //获取收货地址
+  addressList : `${api}/shop/Member/addressList`,
+  //获取地址详情
+  getMemberAddressDetail : `${api}/shop/Member/getMemberAddressDetail`,
+  //编辑收货地址
+  operationAddress : `${api}/shop/Member/operationAddress`
 }
 export { contactInterface }

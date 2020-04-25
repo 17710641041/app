@@ -275,7 +275,6 @@
 			//确定按钮
 			btn_confirm(){
 				this.close();
-				console.log(this.user_address)
 				this.$emit('confirmCallback',this.user_address);
 			}
 		},
